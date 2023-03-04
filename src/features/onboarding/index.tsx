@@ -9,47 +9,59 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { CenteredBox, SixedVerticalBox } from "@/core/components/box";
+import { useRouter } from "next/router";
 
-export default function Onboarding() {
+export default function Onboarding(this: any) {
+     const router = useRouter()
+
      const [onboarding, setOnboarding] = useAtom(onboardingAtom)
-
-   
-
      const onboardingConfig = [
           {
                id : 1,
                image : "/onboarding1.png",
                headerText : "Accurate & Fast Diagnosis",
                text : "Get quick answers to your health concerns with just a few taps - Diagnosis made easy with our app",
-               proceed : "hi"
+               proceed : "proceed_33.svg"
           },
           {
                id : 2,
                image : "/onboarding2.png",
                headerText : "Seamless & Cheap Consultation",
                text : "Connecting you with trusted medical professionals to make informed health decisions, easily and conveniently",
-               proceed : "hi"
+               proceed : "proceed_67.svg"
           },
           {
                id : 3,
                image : "/onboarding3.png",
                headerText : "Simple User Interface",
                text : "Experience the perfect blend of simplicity and functionality with our streamlined user interface, built with you in mind",
-               proceed : "hi"
+               proceed : "proceed_100.svg"
           }
      ]
 
-     function handleSwipe(screen : Record<string, any>){
-          console.log(screen)
-          setOnboarding(screen.id)
-          return ""
+     function handleSwipe(swipeDirection : string){
+          if(swipeDirection == "left" && (onboarding + 1) < onboardingConfig.length){
+               setOnboarding(onboarding + 1)
+          }else if(swipeDirection == 'right' && (onboarding - 1) >= 0){
+               setOnboarding(onboarding - 1)
+          }
      }
+
+     function handleChangeScreen(){
+          if(onboarding != onboardingConfig.length-1){
+               setOnboarding(onboarding + 1)
+          }else{
+               router.push("/auth/register")
+          }
+     }
+     
      var sliderConfig = {
           dots: true,
-          infinite: true,
+          infinite: false,
           speed: 500,
           slidesToShow: 1,
           slidesToScroll: 1,
+          onSwipe: (swipeDirection : string)=>handleSwipe(swipeDirection)
      }
 
      return(
@@ -60,40 +72,36 @@ export default function Onboarding() {
                          Skip
                     </Typography>
                </Box>
-               <Box>
-                    <Slider {...sliderConfig}>
-                         {onboardingConfig.map((screen, index)=>(
-                              <Box className={styles.slide} key={index}>
-                                   <SixedVerticalBox py={3} />        
-                                   <Box
-                                        sx={{
-                                             backgroundImage: `url(${screen.image})`,
-                                             backgroundRepeat: "no-repeat",
-                                             backgroundSize: "100% 100%",
-                                             width:320,
-                                             height:350,
-                                             margin: "auto",
-                                        }}
-                                   >
-                                   </Box>
-                                   <SixedVerticalBox py={2} />        
-                                   {/* <Image src={screen.image} width={350} height={350} alt="screen images"/> */}
-                                   <Typography variant="h3" className={styles.headertext}>
-                                        {screen.headerText}
-                                   </Typography>
-                                   <Typography className={styles.text}>
-                                        {screen.text}
-                                   </Typography>
-                                   <SixedVerticalBox py={1} />        
+               <Slider className={styles.slider} ref={slider => slider?.slickGoTo(onboarding)} {...sliderConfig} >
+                    {onboardingConfig.map((screen, index)=>(
+                         <Box className={styles.slide} key={index}>
+                              <Box
+                                   sx={{
+                                        backgroundImage: `url(${screen.image})`,
+                                        backgroundRepeat: "no-repeat",
+                                        backgroundSize: "100% 100%",
+                                        width:280,
+                                        height:330,
+                                        margin: "auto",
+                                   }}
+                              >
                               </Box>
-                         ))}
-                    </Slider>
-                    <SixedVerticalBox py={3} />        
-                    <CenteredBox>
-                         <Image src={"/proceed_33.svg"} width={80} height={80} alt="Wellighten logo"/>
-                    </CenteredBox>
-
-               </Box>
+                              <Typography variant="h3" className={styles.headertext}>
+                                   {screen.headerText}
+                              </Typography>
+                              <Typography className={styles.text}>
+                                   {screen.text}
+                              </Typography>
+                         </Box>
+                    ))}
+               </Slider>
+               <CenteredBox
+                    sx={{
+                         paddingTop:"20px"
+                    }}
+               >
+                    <Image src={`/${onboardingConfig[onboarding].proceed}`}  height={60} width={onboarding != onboardingConfig.length-1 ? 80 : 245} alt="Wellighten logo" onClick={handleChangeScreen}/>
+               </CenteredBox>
           </Box>
      )
 }

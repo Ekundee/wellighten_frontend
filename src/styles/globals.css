@@ -7,6 +7,9 @@
      --wellighten_purplishblue : #4E27EB;
      --black : "black";
      --wellighten_white : #FFFFFF;
+     
+     /* more */
+     --wellighten_opaque_purple: rgba(208,39,235,0.13)
 }
 
 * {

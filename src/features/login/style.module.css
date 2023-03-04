@@ -1,0 +1,21 @@
+.orBox{
+     width: 100%;
+     position: relative;
+     display: flex;
+     justify-content: space-between;
+}
+
+.orSeparator{
+     background-color: var(--wellighten_grey);
+}
+
+.orText{
+     font-style: normal;
+     font-weight: 700;
+     font-size: 7.90262px;
+     line-height: 10px;
+     text-align: center;
+     letter-spacing: -0.130393px;
+     color: var(--wellighten_grey);
+
+}
