@@ -1,0 +1,31 @@
+.onboardingBox{
+     padding: 20px;
+}
+
+.skipBar{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+
+.slide h3{
+     font-weight: 600;
+     font-size: 20px;
+     line-height: 24px;
+     text-align: center;
+     letter-spacing: -0.165px;
+     color: var(--wellighten_purplishblue);
+     padding: 10px;
+}
+
+.slide p{
+     padding: 5px;
+     font-style: normal;
+     font-weight: 400;
+     font-size: 16px;
+     line-height: 19px;
+     text-align: center;
+     letter-spacing: -0.165px;
+     color: var(--black);
+}
