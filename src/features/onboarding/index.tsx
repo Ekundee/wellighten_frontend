@@ -8,7 +8,7 @@ import styles from "./style.module.css"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { CenteredBox, SixedVerticalBox } from "@/core/components/box";
+import { CenteredBox, SizedVerticalBox } from "@/core/components/box";
 import { useRouter } from "next/router";
 
 export default function Onboarding(this: any) {

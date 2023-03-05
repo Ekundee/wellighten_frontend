@@ -5,4 +5,5 @@ export interface ButtonProp {
     endIcon? : boolean,
     startIcon? : boolean,
     iconSrc? : string,
+    prop? : any
 }

@@ -2,9 +2,11 @@ import Button from "@mui/material/Button";
 import { ButtonProp } from "./interface";
 import Avatar from "@mui/material/Avatar";
 import { Typography } from "@mui/material";
+import { SettingsInputComponent } from "@mui/icons-material";
 
 
-export function PrimaryButton ({  text, title, styles, endIcon=false, startIcon=false, iconSrc} : ButtonProp) {
+export function PrimaryButton (buttonProp: any) {
+     const {  text, title, styles, endIcon=true, startIcon=false, iconsrc} = buttonProp
     return(
           <Button 
                title={title ? title : text}
@@ -17,7 +19,9 @@ export function PrimaryButton ({  text, title, styles, endIcon=false, startIcon=
                     borderRadius: "10px",
                     ...styles
                }}
-               endIcon={endIcon == false ? false: <Avatar src={iconSrc ? iconSrc : '/forward_arrows.svg'}
+               {...buttonProp}
+
+               endIcon={endIcon == false ? false : <Avatar src={iconsrc ? iconsrc : '/forward_arrows.svg'}
                     style={{
                          position:"absolute",
                          width: "24px",
@@ -27,7 +31,7 @@ export function PrimaryButton ({  text, title, styles, endIcon=false, startIcon=
                     }} 
                />}
 
-               startIcon={startIcon == false ? false: <Avatar src={iconSrc ? iconSrc : '/forward_arrows.svg'}
+               startIcon={startIcon == false ? false: <Avatar src={iconsrc ? iconsrc : '/forward_arrows.svg'}
                     style={{
                          position:"absolute",
                          width: "24px",
@@ -42,7 +46,7 @@ export function PrimaryButton ({  text, title, styles, endIcon=false, startIcon=
     )
 }
 
-export function SecondaryButton ({ text, title, styles, endIcon=false, startIcon=false, iconSrc} : ButtonProp) {
+export function SecondaryButton ({ text, title, styles, endIcon=false, startIcon=false, iconsrc} : ButtonProp) {
      return(
           <Button 
                title={title ? title : text}
@@ -62,7 +66,7 @@ export function SecondaryButton ({ text, title, styles, endIcon=false, startIcon
      )
 }
 
-export function OauthButton ({ text, title, styles, endIcon=false, startIcon=false, iconSrc} : ButtonProp) {
+export function OauthButton ({ text, title, styles, endIcon=false, startIcon=false, iconsrc} : any) {
      return(
           <Button 
                title={title ? title : text}
@@ -76,7 +80,7 @@ export function OauthButton ({ text, title, styles, endIcon=false, startIcon=fal
                     textTransform: 'none',
                     ...styles
                }}
-               startIcon={startIcon == false ? false: <Avatar src={iconSrc ? iconSrc : '/forward_arrows.svg'}
+               startIcon={startIcon == false ? false: <Avatar src={iconsrc ? iconsrc : '/forward_arrows.svg'}
                     style={{
                          width: "30px",
                          height: "30px",

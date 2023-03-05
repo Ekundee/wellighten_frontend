@@ -1,30 +1,8 @@
-.marqueeBox {
-    display: flex;
-    padding-right: 60px;
-}
-
-.marqueeBox p {
-    padding-left: 20px;
-}
-
-.marqueeBox :nth-child(1) {
-    color: var(--kiwi_lighter_green);
-}.marqueeBox :nth-child(2) {
-    color: var(--Kiwi_yellowish_green);
-}.marqueeBox :nth-child(3) {
-    color: var(--kiwi_gold);
-}.marqueeBox :nth-child(4) {
-    color: var(--kiwi_white);
-}
-
-.signupPrompt{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.serviceBox{
-     display: flex;
-     width: 100%;
-     background-color: red;
+.registerIllus {
+     background-image: "url('/public/registerIllus.png')";
+     background-repeat: "no-repeat";
+     background-size: "100% 100%";
+     width: "290px";
+     height: "270px";
+     margin: "auto";
 }

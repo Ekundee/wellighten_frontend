@@ -18,7 +18,7 @@ export function CenteredBox ({ children, sx } : any) {
      )
  }
 
-export function SixedHorizontalBox({px, py} : ISixedBoxProp){
+export function SizedHorizontalBox({px, py} : ISixedBoxProp){
      return(
           <Box
                sx={{
@@ -31,7 +31,7 @@ export function SixedHorizontalBox({px, py} : ISixedBoxProp){
      )
 }
 
-export function SixedVerticalBox({px, py} : ISixedBoxProp){
+export function SizedVerticalBox({px, py} : ISixedBoxProp){
      return(
           <Box
                sx={{

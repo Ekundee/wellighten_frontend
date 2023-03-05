@@ -1,12 +1,36 @@
+import { SizedHorizontalBox, SizedVerticalBox } from "@/core/components/box";
 import { OauthButton, PrimaryButton, SecondaryButton } from "@/core/components/buttons";
-import { Box, Typography } from "@mui/material";
+import { LogoNText, Or } from "@/core/components/minor";
+import { Avatar, Box, TextField, Typography } from "@mui/material";
+import { useFormik } from "formik";
 import Image from "next/image";
 import Link from "next/link";
-import LogoNText from "./components/logoNText";
-import Or from "./components/or";
-
+import * as yup from "yup"
 
 export default function Login() {
+     const loginFormConfig =[
+          {
+               placeholder: 'abc_test@gmail.com',
+               icon: '/email.svg',
+          }, {
+               placeholder: '*********',
+               icon: '/lock_icon.svg',
+          }
+     ]
+   
+     const loginForm : any = useFormik({
+          initialValues : {
+               email : '',
+               password: ''
+          },
+          validationSchema : yup.object({
+               email : yup.string().required("Email is required").email("Invalid Email"),
+               password: yup.string().required("Password is required").min(8, "Password must be more than 8 characters")
+          }),
+          onSubmit : (values)=>{
+               console.log(values)
+          },
+     })
     return(
           <Box>
                <Box
@@ -21,10 +45,36 @@ export default function Login() {
                >
                </Box>
               <LogoNText text="Sign in"/>             
+               {
+                         Object.keys(loginForm.values).map((property,index)=>(
+                              <Box key={index}>
+                                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                        <Avatar src={loginFormConfig[index].icon} sx={{width : "24px", height:"24px"}} />
+                                        <SizedHorizontalBox px={2}/>
+                                        <TextField
+                                             name={property}
+                                             value={loginForm.values[property]}
+                                             onChange={loginForm.handleChange}
+                                             onBlur= {loginForm.handleBlur}
+                                             placeholder={loginFormConfig[index].placeholder}
+                                             error={loginForm.touched[property] != true ? false : true}
+                                             helperText={loginForm.touched[property] && loginForm.errors[property]}
+                                             variant="standard"
+                                             sx={{ 
+                                                  width  : "100%",
+                                             }}
+                                        />
+                                   </Box>
+                                   <SizedVerticalBox py={10}/>
+                              </Box>
+                         ))
+                    }
 
-               <Typography>
-                    By creating account, you agree to our Terms and condition and Privacy policy
-               </Typography>
+               <Link href={"/auth/forgot_password"}>
+                    <Typography>
+                         Forgot Password
+                    </Typography>
+               </Link>
 
                <PrimaryButton endIcon={true} text="Login"/>
 
@@ -34,7 +84,7 @@ export default function Login() {
 
                <Typography>
                     Not registered yet? &nbsp;
-                    <Link href={"/auth/login"}>
+                    <Link href={"/auth/register"}>
                          Sign up
                     </Link>
                </Typography>
