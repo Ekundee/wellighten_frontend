@@ -80,7 +80,7 @@ export default function Login() {
 
                <Or/>
 
-               <OauthButton text="Sign in with Google" startIcon={true} iconSrc={"/googleIcon.svg"} />
+               <OauthButton text="Sign in with Google" startIcon={true} iconsrc={"/googleIcon.svg"} />
 
                <Typography>
                     Not registered yet? &nbsp;

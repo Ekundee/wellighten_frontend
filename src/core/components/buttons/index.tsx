@@ -46,7 +46,7 @@ export function PrimaryButton (buttonProp: any) {
     )
 }
 
-export function SecondaryButton ({ text, title, styles, endIcon=false, startIcon=false, iconsrc} : ButtonProp) {
+export function SecondaryButton ({ text, title, styles, endIcon=false, startIcon=false, iconsrc} : any) {
      return(
           <Button 
                title={title ? title : text}

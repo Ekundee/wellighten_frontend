@@ -12,20 +12,54 @@ import styles from "./style.module.css"
 import { useAtom } from "jotai";
 import { resendOtpCountDown } from "./state";
 import { useState } from "react";
+import Countdown from "react-countdown";
 
 export default function Otp_verification() {
      const router = useRouter()
-     const [timer, settimer] = useAtom(resendOtpCountDown)
 
-     const [c,setc] = useState()
-     // setInterval(()=>{
-     //      if(c-1 < 0){
-     //           clearInterval
-     //      }
-     //      setc(c-1)
-     // },1000)
+
+     const renderer = ({ hours, minutes, seconds, completed }:any) => {
+          if (completed) {
+            // Render a completed state
+               return  (
+                    <Typography
+                         sx={{
+                              width: "100%",
+                              textAlign: "right",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              fontSize: "16px",
+                              lineHeight: "19px",
+                              color: "var(--wellighten_blue)"
+                         }}
+                    >
+                         <Link href={"/auth/otp_verification"}>
+                              Resend Token
+                         </Link>
+                    </Typography>
+               )
+          } else {
+            // Render a countdown
+            return(
+               <Typography
+                    sx={{
+                         width: "100%",
+                         textAlign: "right",
+                         fontStyle: "normal",
+                         fontWeight: 400,
+                         fontSize: "16px",
+                         lineHeight: "19px",
+                         color: "red"
+                    }}
+               >
+                    Resend token in&nbsp;
+                    <span>{minutes}0:{seconds}</span>
+               </Typography>
+            )
+          }
+     };
    
-     const tokenForm : any = useFormik({
+     const tokenForm :any = useFormik({
           initialValues : {
                valueOne: '',
                valueTwo: '',
@@ -40,6 +74,7 @@ export default function Otp_verification() {
           }),
           onSubmit : (values)=>{
                console.log(values)
+               router.push("/auth/login")
           },
      })
      return(
@@ -74,10 +109,15 @@ export default function Otp_verification() {
                                    key={index}
                                    name={property}
                                    value={tokenForm.values[property]}
-                                   onChange={tokenForm.handleChange}
+                                   // onChange={tokenForm.handleChange}
+                                   onChange={(e : any)=>{
+                                        tokenForm.setFieldValue(property.toString(),e.nativeEvent.data)
+                                   }}
                                    onBlur= {tokenForm.handleBlur}
                                    placeholder="0"
                                    variant="filled"
+                                   type={"number"}
+                                  
                                    sx={{ 
                                         width  : "50px",
                                         height  : "60px",
@@ -105,26 +145,35 @@ export default function Otp_verification() {
                               />
                          ))
                     }
-                    </Box>          
-                    <SizedVerticalBox py={15}/>
-                    
-                    <PrimaryButton text="Autorize Email" onClick={tokenForm.submitForm} endIcon={true} iconSrc={"/next.svg"}/>
-                  
+                    </Box>    
                     <SizedVerticalBox py={5}/>
+
                     <Typography
                          sx={{
                               width: "100%",
-                              textAlign: "right",
+                              textAlign: "center",
                               fontStyle: "normal",
                               fontWeight: 400,
-                              fontSize: "16px",
+                              fontSize: "12px",
                               lineHeight: "19px",
-                              color: "red"
+                              color: "red",
                          }}
                     >
-                         Resend Token in 00:29
-                         {c}
+                         {tokenForm.errors.valueOne ? "Please enter the token" : tokenForm.errors.valueTwo ? "Please enter the token" :tokenForm.errors.valueThree ? "Please enter the token" :tokenForm.errors.valueFour ? "Please enter the token" : "" }
+                              
                     </Typography>
+
+                    <SizedVerticalBox py={15}/>
+                    
+                    <PrimaryButton text="Autorize Email" onClick={tokenForm.submitForm} endIcon={true}/>
+                  
+                    <SizedVerticalBox py={5}/>
+                   
+                    <Countdown 
+                         date={Date.now() + 30000}
+                         renderer={renderer}
+                         zeroPadTime={2}
+                    />
                </Box>
           </Box>
     )

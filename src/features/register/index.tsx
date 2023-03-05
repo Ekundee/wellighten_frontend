@@ -48,6 +48,7 @@ export default function Register() {
      })
      return(
           <Box>
+               <SizedVerticalBox py={10}/>
                <Box
                     sx={{
                          backgroundImage: `url(/registerillus.png)`,
@@ -100,7 +101,7 @@ export default function Register() {
 
                <PrimaryButton text="Create Account" onClick={registerForm.submitForm} />
                <Or/>
-               <OauthButton text="Sign up with Google" startIcon={true} iconSrc={"/googleIcon.svg"} />
+               <OauthButton text="Sign up with Google" startIcon={true} iconsrc={"/googleIcon.svg"} />
 
                <Typography>
                     Already registered? &nbsp;
