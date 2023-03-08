@@ -73,7 +73,7 @@ export default function Register() {
                                         onChange={registerForm.handleChange}
                                         onBlur= {registerForm.handleBlur}
                                         placeholder={registerFormConfig[index].placeholder}
-                                        error={registerForm.touched[property] != true ? false : true}
+                                        error={registerForm.touched[property] && registerForm.errors[property] ? true : false}
                                         helperText={registerForm.touched[property] && registerForm.errors[property]}
                                         variant="standard"
                                         sx={{ 

@@ -5,9 +5,11 @@ import { Avatar, Box, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import * as yup from "yup"
 
 export default function Login() {
+     const router = useRouter()
      const loginFormConfig =[
           {
                placeholder: 'abc_test@gmail.com',
@@ -29,6 +31,7 @@ export default function Login() {
           }),
           onSubmit : (values)=>{
                console.log(values)
+               router.push("/tabs")
           },
      })
     return(
@@ -57,12 +60,14 @@ export default function Login() {
                                              onChange={loginForm.handleChange}
                                              onBlur= {loginForm.handleBlur}
                                              placeholder={loginFormConfig[index].placeholder}
-                                             error={loginForm.touched[property] != true ? false : true}
+                                             error={loginForm.touched[property] && loginForm.errors[property] ? true : false}
                                              helperText={loginForm.touched[property] && loginForm.errors[property]}
                                              variant="standard"
                                              sx={{ 
                                                   width  : "100%",
                                              }}
+                                             type={property =="password" ? "password" : "text"}
+
                                         />
                                    </Box>
                                    <SizedVerticalBox py={10}/>
@@ -76,7 +81,7 @@ export default function Login() {
                     </Typography>
                </Link>
 
-               <PrimaryButton endIcon={true} text="Login"/>
+               <PrimaryButton endIcon={true} text="Login" onClick={loginForm.submitForm}/>
 
                <Or/>
 

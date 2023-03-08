@@ -9,7 +9,9 @@
      --wellighten_white : #FFFFFF;
      
      /* more */
-     --wellighten_opaque_purple: rgba(208,39,235,0.13)
+     --wellighten_opaque_purple: rgba(208,39,235,0.13);
+     --wellighten_opaque_blue: rgba(39,50,235,1);
+     /* z-index: 1000; */
 }
 
 * {

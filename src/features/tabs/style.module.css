@@ -1,0 +1,7 @@
+.scrollableBox{
+     width: 100%;
+     height: calc(100vh - 90px);
+     overflow-y: scroll;
+     padding-right: 17px;
+     box-sizing: content-box
+}

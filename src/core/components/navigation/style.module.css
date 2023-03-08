@@ -1,0 +1,21 @@
+.bottomNavbarBox{
+     position: fixed;
+     width: 100%;
+     height: 90px;
+     padding: 15px;
+     box-sizing: border-box;
+     display : flex;
+     align-items: center;
+     bottom: 0px;
+     background-color: white;
+}
+
+.slider{
+     position: absolute;
+     background-color :var(--wellighten_opaque_blue);
+     width: 27%;
+     height: 50px;
+     border-radius: 10px;
+     z-index: -1;
+}
+
