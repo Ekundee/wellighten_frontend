@@ -1,12 +1,13 @@
 import Button from "@mui/material/Button";
 import { ButtonProp } from "./interface";
 import Avatar from "@mui/material/Avatar";
-import { AppBar, Box, Typography } from "@mui/material";
+import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import styles from "./style.module.css"
 import { SizedHorizontalBox } from "../box";
 import { useAtom } from "jotai";
 import { navbarPropertyConfigAtom } from "./state";
 import { tabAtom } from "@/features/tabs";
+import { ArrowBackIos } from "@mui/icons-material";
 
 
 
@@ -90,11 +91,25 @@ export function BottomNavbar (this: any) {
 
 // appbar 
 
-export function TopAppbar (this: any) {
+export function TopAppbar ({ text } : any) {
      return(
-          <AppBar
-          
-          />
+          <AppBar position="static">
+               <Toolbar>
+                    <IconButton
+                         size="large"
+                         edge="start"
+                         color="inherit"
+                         aria-label="menu"
+                         sx={{ mr: 2 }}
+                    >
+                         <ArrowBackIos/>
+                    </IconButton>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                         {text}
+                    </Typography>
+                    <Button color="inherit">{text}</Button>
+               </Toolbar>
+          </AppBar>
      )
 }
 
