@@ -7,12 +7,14 @@ import styles from "./style.module.css"
 import { SizedVerticalBox } from "@/core/components/box";
 import React from "react"
 import { Box } from "@mui/material";
+import { topAppBarTextAtom } from "@/core/components/navigation";
 
 export const tabAtom = atom(0)
 export default function Tabs() {
    
      const [navbarPropertyConfig, setNavbarPropertyConfig] = useAtom(navbarPropertyConfigAtom)
      const [tab, setTab] = useAtom(tabAtom)
+     const [,setTopAppBarText] = useAtom(topAppBarTextAtom)
      
      var sliderConfig = {
           dots: false,
@@ -26,6 +28,7 @@ export default function Tabs() {
      
      function handleSwipe(swipeDirection : string){
           var activetab = 0
+        
           if(swipeDirection == "left" && (tab + 1) < navbarPropertyConfig.length){
                activetab = tab + 1
                setTab(activetab)
@@ -42,6 +45,7 @@ export default function Tabs() {
                     navbarPropertyConfig[property].active = 1
                }
           }
+          setTopAppBarText(navbarPropertyConfig[activetab].text)
           setNavbarPropertyConfig(navbarPropertyConfig)
      }
     return(

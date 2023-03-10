@@ -1,19 +1,144 @@
-import { PrimaryButton, SecondaryButton } from "@/core/components/buttons";
-import { Box } from "@mui/material";
-import { Typography } from "@mui/material";
-import Image from "next/image";
-import Marquee from "react-fast-marquee";
-import BlackBox from "./components/blackBox";
-import ServiceCard from "./components/offeringCard";
-import { IServiceCard } from "./interface";
-import styles from "./style.module.css"
+import PaymentIcon from '@mui/icons-material/Payment';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import LogoutIcon from '@mui/icons-material/Logout';
+import HistoryIcon from '@mui/icons-material/History';
+import MedicalServicesOutlinedIcon from '@mui/icons-material/MedicalServicesOutlined';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import LockResetOutlinedIcon from '@mui/icons-material/LockResetOutlined';
+import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import GetAppOutlinedIcon from '@mui/icons-material/GetAppOutlined';
+import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
+import { AppBar, Avatar, Badge, Box, Divider, Switch, Tab, Toolbar, Typography } from '@mui/material';
+import { SizedHorizontalBox, SizedVerticalBox } from '@/core/components/box';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import React, { useEffect } from "react"
+import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
+import { useAtom } from 'jotai';
+import { topAppBarTextAtom } from '@/core/components/navigation';
+
 
 export default function Account() {
-   
+     const accountConfig = [
+          [
+               "Profile",
+               [{
+                    name: "Personal Information",
+                    icon: <Person2OutlinedIcon sx={{ width: 24, height: 24}}/>
+               }]
+          ],[
+               "History",
+               [{
+                    name: "Diagnosis history",
+                    icon: <MedicalServicesOutlinedIcon  sx={{ width: 24, height: 24}}/>
+               },{
+                    name: "Consultation history",
+                    icon: <PersonAddAlt1OutlinedIcon  sx={{ width: 24, height: 24}}/>
+               },{
+                    name: "Transaction history",
+                    icon: <HistoryIcon  sx={{ width: 24, height: 24}}/>
+               }]
+          ],[
+               "Settings",
+               [{
+                    name: "Dark mode",
+                    icon: <DarkModeOutlinedIcon  sx={{ width: 24, height: 24}}/>
+               },{
+                    name: "Change password",
+                    icon: <LockResetOutlinedIcon  sx={{ width: 24, height: 24}}/>
+               }]
+          ],[
+               "Payment",
+               [{
+                    name: "Deposit",
+                    icon: <PaymentIcon  sx={{ width: 24, height: 24}}/>
+               },{
+                    name: "Withdraw",
+                    icon: <GetAppOutlinedIcon  sx={{ width: 24, height: 24}}/>
+               },{
+                    name: "Transfer",
+                    icon: <SendOutlinedIcon  sx={{ width: 24, height: 24}}/>
+               }]
+          ],[
+               "",
+               [{
+                    name: "Support & FAQs",
+                    icon: <HelpOutlineIcon  sx={{ width: 24, height: 24}}/>
+               },{
+                    name: "Logout",
+                    icon: <LogoutIcon  sx={{ width: 24, height: 24}}/>
+               }]
+          ]
+     ]
 
-    return(
-          <>
-               Account
-          </>
+  
+     return(
+          <Box
+               sx={{
+                    backgroundColor : "#EEEEEE",
+                    width:"100%",
+                    minHeight: "100%",
+                    height: "calc(max-content)"
+               }}
+          >
+               <SizedVerticalBox py={10}/>
+               <Box>
+                    {
+                         accountConfig.map((section :any, index)=>(
+                              <Box key={index}>
+                                   <Typography
+                                        sx={{
+                                             paddingTop: "20px",
+                                             paddingBottom: "8px",
+                                             paddingX: "5px",
+                                             fontFamily: 'Sofia Sans',
+                                             fontStyle: "normal",
+                                             fontWeight: 600,
+                                             fontSize: "14px",
+                                             lineHeight: "17px",
+                                             letterSpacing: "-0.18315px",
+                                             textTransform: "uppercase"
+                                        }}
+                                   >
+                                        {section[0]}
+                                   </Typography>
+                                   <Divider/>
+                                   {
+                                        section[1].map((property : any, index2: any)=>(
+                                             <Box
+                                                  key={index2}
+                                                  sx={{
+                                                       display: "flex",
+                                                       justifyContent: "space-between",
+                                                       backgroundColor : "var(--wellighten_white)",
+                                                       alignItems: "center",
+                                                       paddingX: "20px",
+                                                       paddingY : "15px",
+                                                       borderBottom: "1px solid #c5c5c5"
+
+                                                  }}
+                                             >
+                                                  <Box
+                                                       sx={{
+                                                            display : "flex",
+                                                            alignItems: "center",
+                                                       }}
+                                                  >
+                                                       {property.icon}
+                                                       <SizedHorizontalBox px={10}/>
+                                                       <Typography>
+                                                            {property.name}
+                                                       </Typography>
+                                                  </Box>
+                                                  {property.name == "Dark mode" ? <Switch/> : <ChevronRightIcon/>}
+                                             </Box>
+                                        ))
+                                   }
+                              </Box>
+                         ))
+                    }
+                    <SizedVerticalBox py={20}/>
+               </Box>
+          </Box>
     )
 }

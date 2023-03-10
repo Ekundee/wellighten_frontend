@@ -1,13 +1,14 @@
-import Button from "@mui/material/Button";
-import { ButtonProp } from "./interface";
 import Avatar from "@mui/material/Avatar";
 import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import styles from "./style.module.css"
 import { SizedHorizontalBox } from "../box";
-import { useAtom } from "jotai";
+import { atom, useAtom } from "jotai";
 import { navbarPropertyConfigAtom } from "./state";
 import { tabAtom } from "@/features/tabs";
 import { ArrowBackIos } from "@mui/icons-material";
+import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 
 
@@ -15,6 +16,7 @@ import { ArrowBackIos } from "@mui/icons-material";
 export function BottomNavbar (this: any) {
      const [,setTab] = useAtom(tabAtom)
      const [navbarPropertyConfig, setNavbarPropertyConfig] = useAtom(navbarPropertyConfigAtom)
+     const [,setTopAppBarText] = useAtom(topAppBarTextAtom)
      
      const handleSlider = (activeTab : any) =>{
           for(var property = 0; property < navbarPropertyConfig.length; property++){
@@ -24,6 +26,7 @@ export function BottomNavbar (this: any) {
                     navbarPropertyConfig[property].active = 1
                }
           }
+          setTopAppBarText(navbarPropertyConfig[activeTab].text)
           setNavbarPropertyConfig(navbarPropertyConfig)
           setTab(activeTab)
      }
@@ -90,24 +93,46 @@ export function BottomNavbar (this: any) {
 
 
 // appbar 
+export const topAppBarTextAtom = atom("Text"); 
+export function TopAppbar () {
+     const [topAppBarText] = useAtom(topAppBarTextAtom)
 
-export function TopAppbar ({ text } : any) {
      return(
-          <AppBar position="static">
-               <Toolbar>
-                    <IconButton
-                         size="large"
-                         edge="start"
-                         color="inherit"
-                         aria-label="menu"
-                         sx={{ mr: 2 }}
+          <AppBar position='static'>
+               <Toolbar
+                    sx={{
+                         justifyContent: "space-between",
+                         backgroundColor: "white",
+                         color: "var(--wellighten_black)",
+                         backgroundImage: "linear-gradient(60deg,var(--wellighten_blue),var(--wellighten_blue),var(--wellighten_opaque_blue),var(--wellighten_opaque_purple))"
+                    }}
+               >
+                    <Box
+                         sx={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center"
+                         }}
                     >
-                         <ArrowBackIos/>
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                         {text}
-                    </Typography>
-                    <Button color="inherit">{text}</Button>
+                         
+                         <IconButton
+                              size="large"
+                              edge="start"
+                              color="inherit"
+                              aria-label="menu"
+                              sx={{ mr: 2 }}
+                              onClick={useRouter().back}
+                         >
+                              <ArrowBackIos/>
+                         </IconButton>
+                         {/* <SizedHorizontalBox px={1}/> */}
+                         <Typography
+                              // sx={{color : "black"}}
+                         >
+                              {topAppBarText}
+                         </Typography>
+                    </Box>
+                    <NotificationsActiveOutlinedIcon sx={{color:"white"}}/>
                </Toolbar>
           </AppBar>
      )

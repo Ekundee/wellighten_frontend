@@ -10,7 +10,7 @@ const sofia_Sans = Sofia_Sans({ subsets: ['latin'] })
 export default function Home() {
   return (
     <AuthLayout>
-    <Onboarding/>
+     <Onboarding/>
     </AuthLayout>
   )
 }

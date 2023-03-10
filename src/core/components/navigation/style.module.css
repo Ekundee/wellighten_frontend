@@ -8,11 +8,12 @@
      align-items: center;
      bottom: 0px;
      background-color: white;
+     border-top: 1px solid #a09f9f;
 }
 
 .slider{
      position: absolute;
-     background-color :var(--wellighten_opaque_blue);
+     background-color :var(--wellighten_blue);
      width: 27%;
      height: 50px;
      border-radius: 10px;
