@@ -26,13 +26,14 @@ export default function Tabs() {
      }
 
      
-     function handleSwipe(swipeDirection : string){
-          var activetab = 0
-        
+     function handleSwipe(swipeDirection : string,){
+          var activetab = tab
           if(swipeDirection == "left" && (tab + 1) < navbarPropertyConfig.length){
+               console.log(tab)
                activetab = tab + 1
+               console.log(activetab)
                setTab(activetab)
-
+               console.log("newest tab = "+tab)
           }else if(swipeDirection == 'right' && (tab - 1) >= 0){
                activetab = tab - 1
                setTab(activetab)
@@ -48,12 +49,12 @@ export default function Tabs() {
           setTopAppBarText(navbarPropertyConfig[activetab].text)
           setNavbarPropertyConfig(navbarPropertyConfig)
      }
-    return(
+
+     return(
           <Slider 
                ref={slider => slider?.slickGoTo(tab)} {...sliderConfig}
                className={styles.slider}
           >
-               
                {
                     navbarPropertyConfig.map((property, index)=>(
                          <Box className={styles.scrollableBox} key={index}>

@@ -94,7 +94,7 @@ export function BottomNavbar (this: any) {
 
 // appbar 
 export const topAppBarTextAtom = atom("Text"); 
-export function TopAppbar () {
+export function TopAppbar ({ isBack } : any) {
      const [topAppBarText] = useAtom(topAppBarTextAtom)
 
      return(
@@ -114,18 +114,19 @@ export function TopAppbar () {
                               alignItems: "center"
                          }}
                     >
-                         
-                         <IconButton
-                              size="large"
-                              edge="start"
-                              color="inherit"
-                              aria-label="menu"
-                              sx={{ mr: 2 }}
-                              onClick={useRouter().back}
-                         >
-                              <ArrowBackIos/>
-                         </IconButton>
-                         {/* <SizedHorizontalBox px={1}/> */}
+                         {
+                              isBack &&
+                              <IconButton
+                                   size="large"
+                                   edge="start"
+                                   color="inherit"
+                                   aria-label="menu"
+                                   sx={{ mr: 2 }}
+                                   onClick={useRouter().back}
+                              >
+                                   <ArrowBackIos/>
+                              </IconButton>
+                         }
                          <Typography
                               // sx={{color : "black"}}
                          >
