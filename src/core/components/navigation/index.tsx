@@ -96,7 +96,7 @@ export function BottomNavbar (this: any) {
 export const topAppBarTextAtom = atom("Text"); 
 export function TopAppbar ({ isBack } : any) {
      const [topAppBarText] = useAtom(topAppBarTextAtom)
-
+     const router = useRouter()
      return(
           <AppBar position='static'>
                <Toolbar
@@ -122,7 +122,7 @@ export function TopAppbar ({ isBack } : any) {
                                    color="inherit"
                                    aria-label="menu"
                                    sx={{ mr: 2 }}
-                                   onClick={useRouter().back}
+                                   onClick={router.back}
                               >
                                    <ArrowBackIos/>
                               </IconButton>
