@@ -1,9 +1,10 @@
 import Button from "@mui/material/Button";
 import { ButtonProp } from "./interface";
 import Avatar from "@mui/material/Avatar";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { SettingsInputComponent } from "@mui/icons-material";
-
+import { useState } from "react"
+import { display } from "@mui/system";
 
 export function PrimaryButton (buttonProp: any) {
      const {  text, title, styles, endIcon=true, startIcon=false, iconsrc} = buttonProp
@@ -100,5 +101,43 @@ export function OauthButton ({ text, title, styles, endIcon=false, startIcon=fal
                     {text ? text : "Oauth Button"}
                </Typography>
           </Button>
+     )
+}
+
+
+export function PicButton (buttonProp: any) {
+     const { imagesrc, width, height } = buttonProp
+
+     const [ scaleState, setScaleState ] = useState(1)
+     const [ opacityState, setOpacityState ] = useState(1)
+     return(
+          <Box
+               sx={{
+                    backgroundImage: `url(${imagesrc})`,
+                    width : width ? `${width}px` :  "200px",
+                    height : height ? `${height}px` :  "50px",
+                    scale : `${scaleState}`,
+                    opacity: opacityState,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+               }}
+               
+               onMouseDown={()=>{
+                    setScaleState(0.9)
+                    setTimeout(()=>{
+                         setScaleState(1)
+                    },100)
+               }}
+
+               onMouseOver={()=>{
+                    setOpacityState(0.7)
+               }}
+               onMouseLeave={()=>{
+                    setOpacityState(1)
+               }}
+
+               {...buttonProp}
+          >             
+          </Box>
      )
 }

@@ -1,3 +1,4 @@
 import { atom } from "jotai";
 
-export const onboardingAtom = atom(1)
+export const diagnosisPicBase64StringAtom = atom("")
+export const diagnosisPicFormatStringAtom = atom("")
