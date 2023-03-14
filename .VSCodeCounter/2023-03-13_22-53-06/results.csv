@@ -1,0 +1,135 @@
+"filename", "language", "JavaScript", "JSON with Comments", "XML", "Markdown", "CSS", "TypeScript JSX", "TypeScript", "JSON", "comment", "blank", "total"
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\.eslintrc.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 4
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\README.md", "Markdown", 0, 0, 0, 23, 0, 0, 0, 0, 0, 16, 39
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\capacitor.config.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 8, 0, 4, 3, 15
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\next.config.js", "JavaScript", 8, 0, 0, 0, 0, 0, 0, 0, 1, 2, 11
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\package.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 57, 0, 1, 58
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\diagnosis illustration.svg", "XML", 0, 0, 10, 0, 0, 0, 0, 0, 0, 1, 11
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\email.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\forward_arrows.svg", "XML", 0, 0, 5, 0, 0, 0, 0, 0, 0, 1, 6
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\googleIcon.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\lock_icon.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\logo.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\medicalConsultationService.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\name_icon.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\next.svg", "XML", 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\padlock.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\proceed_100.svg", "XML", 0, 0, 14, 0, 0, 0, 0, 0, 0, 1, 15
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\proceed_33.svg", "XML", 0, 0, 7, 0, 0, 0, 0, 0, 0, 1, 8
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\proceed_67.svg", "XML", 0, 0, 7, 0, 0, 0, 0, 0, 0, 1, 8
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\symptomDiagnosisService.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\themeaccount.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\themechats.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\themehome.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\themeservices.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\vercel.svg", "XML", 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\visualDiagEye.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\visualDiagSkin.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\visualDiagnosisService.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\whiteaccount.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\whitechats.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\whitehome.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\public\whiteservices.svg", "XML", 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\box\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 41, 0, 0, 0, 4, 45
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\box\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 4
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\buttons copy\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 96, 0, 0, 0, 7, 103
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\buttons\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 131, 0, 0, 0, 12, 143
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\buttons\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\buttons\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\layouts\allNav.layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 13, 0, 0, 0, 1, 14
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\layouts\auth.layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 14, 0, 0, 0, 2, 16
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\layouts\bottomNavbar.layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 12, 0, 0, 0, 1, 13
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\layouts\topNavbar.layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 12, 0, 0, 0, 1, 13
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\minor\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 31, 0, 0, 0, 4, 35
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\minor\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 4
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\minor\style.module.css", "CSS", 0, 0, 0, 0, 35, 0, 0, 0, 1, 6, 42
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\navigation\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 124, 0, 0, 2, 16, 142
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\navigation\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\navigation\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 32, 0, 0, 0, 5, 37
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\navigation\style.module.css", "CSS", 0, 0, 0, 0, 20, 0, 0, 0, 0, 3, 23
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\popups\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\popups\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\textboxes\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\components\textboxes\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\utils\axios.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 4
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\utils\theme.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 17, 0, 0, 0, 4, 21
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\core\utils\utils.state.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\account\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\account\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 139, 0, 0, 0, 5, 144
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\account\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\account\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\account\style.module.css", "CSS", 0, 0, 0, 0, 26, 0, 0, 0, 0, 5, 31
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\chats\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\chats\components\blackBox.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 15, 0, 0, 0, 1, 16
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\chats\components\offeringCard.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 24, 0, 0, 0, 1, 25
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\chats\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 7, 0, 0, 0, 1, 8
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\chats\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\chats\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\chats\style.module.css", "CSS", 0, 0, 0, 0, 26, 0, 0, 0, 0, 5, 31
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\home\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\home\components\blackBox.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 15, 0, 0, 0, 1, 16
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\home\components\offeringCard.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 24, 0, 0, 0, 1, 25
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\home\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\home\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\home\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\home\style.module.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\login\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\login\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 90, 0, 0, 0, 9, 99
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\login\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\login\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\login\style.module.css", "CSS", 0, 0, 0, 0, 18, 0, 0, 0, 0, 3, 21
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\onboarding\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\onboarding\components\onboarding1.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\onboarding\components\onboarding2.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\onboarding\components\onboarding3.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\onboarding\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 100, 0, 0, 1, 6, 107
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\onboarding\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\onboarding\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\onboarding\style.module.css", "CSS", 0, 0, 0, 0, 35, 0, 0, 0, 0, 5, 40
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\otp_verification\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\otp_verification\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 166, 0, 0, 3, 11, 180
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\otp_verification\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\otp_verification\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 4
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\otp_verification\style.module.css", "CSS", 0, 0, 0, 0, 14, 0, 0, 0, 2, 1, 17
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\register\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\register\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 109, 0, 0, 0, 6, 115
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\register\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\register\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\register\style.module.css", "CSS", 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 8
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\services\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\services\components\blackBox.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 15, 0, 0, 0, 1, 16
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\services\components\offeringCard.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 24, 0, 0, 0, 1, 25
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\services\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 99, 0, 0, 0, 4, 103
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\services\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\services\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\services\style.module.css", "CSS", 0, 0, 0, 0, 26, 0, 0, 0, 0, 5, 31
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\tabs\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\tabs\components\blackBox.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 15, 0, 0, 0, 1, 16
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\tabs\components\offeringCard.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 24, 0, 0, 0, 1, 25
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\tabs\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 60, 0, 0, 0, 8, 68
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\tabs\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\tabs\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\tabs\style.module.css", "CSS", 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\visualDiagnosis\api.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\visualDiagnosis\capture.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 44, 0, 0, 0, 7, 51
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\visualDiagnosis\components\blackBox.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 15, 0, 0, 0, 1, 16
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\visualDiagnosis\components\offeringCard.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 24, 0, 0, 0, 1, 25
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\visualDiagnosis\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 65, 0, 0, 1, 11, 77
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\visualDiagnosis\interface.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\visualDiagnosis\state.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 4
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\features\visualDiagnosis\style.module.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\_app.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 18, 0, 0, 1, 2, 21
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\_document.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 12, 0, 0, 0, 2, 14
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\auth\login.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 9, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\auth\otp_verification.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 9, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\auth\register.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 9, 0, 0, 0, 1, 10
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 14, 0, 0, 0, 4, 18
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\services\visual_diagnosis\capture.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\services\visual_diagnosis\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\services\visual_diagnosis\receipt.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\tabs.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 15, 0, 0, 0, 2, 17
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\pages\test.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 30, 0, 0, 0, 13, 43
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\styles\Home.module.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 278, 1, 279
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\src\styles\globals.css", "CSS", 0, 0, 0, 0, 27, 0, 0, 0, 99, 5, 131
+"c:\Users\user\Documents\Final year project\coding\wellighten_frontend\tsconfig.json", "JSON with Comments", 0, 22, 0, 0, 0, 0, 0, 0, 3, 1, 26
+"Total", "-", 8, 22, 216, 23, 242, 1964, 10, 60, 396, 292, 3233

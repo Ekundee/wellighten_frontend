@@ -3,15 +3,9 @@ import { Box, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Webcam from "react-webcam";
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Camera, CameraResultType } from '@capacitor/camera';
-import axios from "axios";
-import {decode} from "base64-arraybuffer";
-import moment from "moment";
 import { diagnosisPicBase64StringAtom, diagnosisPicFormatStringAtom } from "./state";
-
-
 
 
 export default function VisualDiagnosis() {
@@ -23,27 +17,22 @@ export default function VisualDiagnosis() {
      const takePicture = async () => {
           const image = await Camera.getPhoto({
             quality: 100,
-            allowEditing: true,
+          //   allowEditing: true,
             resultType: CameraResultType.Base64,
           });
         
-          // image.webPath will contain a path that can be set as an image src.
-          // You can access the original file using image.path, which can be
-          // passed to the Filesystem API to read the raw data of the image,
-          // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-          var imageUrl : any = image.webPath;
           return image
         };
      const router = useRouter()
 
      const visualDiagnosisTypeConfig = [
           {
-               icon : "/next.svg",
+               icon : "/visualDiagSkin.svg",
                name : "Skin Diagnosis",
                tagLine : "Get a clearer picture of your skin's health with our visual diagnosis",
                link : "/services/visual_diagnosis/skin"
           }, {
-               icon : "/next.svg",
+               icon : "/visualDiagEye.svg",
                name : "Eye Diagnosis",
                tagLine : "Trust us to detect and diagnose eye diseases before they become a problem",
                link : "/services/visual_diagnosis/eye"

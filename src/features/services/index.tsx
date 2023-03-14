@@ -4,24 +4,29 @@ import {  Box, Toolbar } from "@mui/material";
 import { Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 
 
 export default function Services() {
+     const router = useRouter()
      const serviceConfig = [
           {
                icon: "/symptomDiagnosisService.svg",
                headerText: "Symptom Diagnosis",
-               infoText: "Take control of your health and get a personalized diagnosis of your symptoms, so you can get the right treatment and start feeling better, faster."
+               infoText: "Take control of your health and get a personalized diagnosis of your symptoms, so you can get the right treatment and start feeling better, faster.",
+               link: "/tabs"
           }, {
                icon: "/visualDiagnosisService.svg",
                headerText: "Visual Diagnosis",
-               infoText: "From sight to discovery: Discover a faster, more accurate way to diagnose with visual recognition technology."
+               infoText: "From sight to discovery: Discover a faster, more accurate way to diagnose with visual recognition technology.",
+               link: "/services/visual_diagnosis"
           }, {
                icon: "/medicalConsultationService.svg",
                headerText: "Medical Consultation",
-               infoText: "Expert medical consultation to help you make informed decisions about your health, and achieve your wellness goals, every step of the way."
+               infoText: "Expert medical consultation to help you make informed decisions about your health, and achieve your wellness goals, every step of the way.",
+               link: "/tabs"
           },
      ]
     return(
@@ -38,6 +43,7 @@ export default function Services() {
                     {
                          serviceConfig.map((service, index)=>(
                               <Box key={index}
+                                   onClick={()=>router.push(service.link)}
                                    sx={{
                                         display: "flex",
                                         paddingY: "25px",
