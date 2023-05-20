@@ -1,8 +1,47 @@
+.registerIllusBox{
+     padding-top: 40px;
+     padding-bottom: 40px;
+}
+
+
 .registerIllus {
-     background-image: "url('/public/registerIllus.png')";
-     background-repeat: "no-repeat";
-     background-size: "100% 100%";
-     width: "290px";
-     height: "270px";
-     margin: "auto";
+     background-image: url('/registerIllus.png');
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+     width: 290px;
+     height: 290px;
+     margin: auto;
+}
+
+.textFieldBox{
+     padding-top: 12px;
+     padding-bottom: 12px;
+     display: flex;
+     align-items: center;
+}
+
+.termsNConditionFullText{
+     padding-top: 12px;
+     padding-bottom: 12px;
+     font-weight: 400;
+     font-size: 0.9rem;
+     justify-items: center;
+     color: var(--wellighten_deeper_grey);
+}
+
+.termsNConditionText{
+     color: var(--wellighten_blue);
+}
+
+.termsNConditionText a{
+     text-decoration: none;
+}
+
+
+.alreadyRegisteredFullText{
+     padding-top: 12px;
+     padding-bottom: 12px;
+     font-weight: 400;
+     font-size: 1rem;
+     color: var(--wellighten_deeper_grey);
 }

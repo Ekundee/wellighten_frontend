@@ -1,15 +1,26 @@
 import { SizedHorizontalBox, SizedVerticalBox } from "@/core/components/box";
 import { OauthButton, PrimaryButton, SecondaryButton } from "@/core/components/buttons";
-import { LogoNText, Or } from "@/core/components/minor";
+import { CustomTypography, LogoNText, Or } from "@/core/components/minor";
 import { Avatar, Box, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as yup from "yup"
+import styles from "./style.module.css"
+import { SignInAPI, SignUpAPI } from "@/api/authorization";
+import { ISignIn, ISignUp } from "@/api/authorization/interface";
+import { useAtom } from "jotai";
+import { snackBarMessageAtom, snackBarOpenAtom, snackBarSeverityAtom } from "@/core/components/popups/state";
+import { alertSeverity } from "@/core/utils/enum";
 
 export default function Login() {
      const router = useRouter()
+
+     const [snackBarOpenState , setSnackBarOpenState] : any= useAtom(snackBarOpenAtom)
+     const [snackBarMessageState , setSnackBarMessageState] : any = useAtom(snackBarMessageAtom)
+     const [snackBarSeverityState , setSnackBarSeverityState] : any = useAtom(snackBarSeverityAtom)
+
      const loginFormConfig =[
           {
                placeholder: 'abc_test@gmail.com',
@@ -29,57 +40,63 @@ export default function Login() {
                email : yup.string().required("Email is required").email("Invalid Email"),
                password: yup.string().required("Password is required").min(8, "Password must be more than 8 characters")
           }),
-          onSubmit : (values)=>{
-               console.log(values)
-               router.push("/tabs")
+          onSubmit : async (values)=>{
+               const signinDTO : ISignIn = {
+                    Email: values.email,
+                    Password: values.password
+               }
+               
+               const signin = await SignInAPI(signinDTO);
+               if(signin.Status != 200){
+                    setSnackBarSeverityState(alertSeverity.ERROR)
+               }else{
+                    setSnackBarSeverityState(alertSeverity.SUCCESS)
+               }
+               setSnackBarMessageState(signin?.Message)
+               setSnackBarOpenState(true)
+
+               if(signin.Status == 200){
+                    setTimeout(()=>{
+                         return router.push("/tabs")
+                    },2000)
+               }
+               // router.push("/tabs")
           },
      })
     return(
           <Box>
-               <Box
-                    sx={{
-                         backgroundImage: `url(/loginillus.png)`,
-                         backgroundRepeat: "no-repeat",
-                         backgroundSize: "100% 100%",
-                         width: 290,
-                         height:270,
-                         margin: "auto",
-                    }}
-               >
+               <Box className={styles.loginIllusBox}>
+                    <Box className={styles.loginIllus}></Box>
                </Box>
               <LogoNText text="Sign in"/>             
                {
                          Object.keys(loginForm.values).map((property,index)=>(
-                              <Box key={index}>
-                                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                        <Avatar src={loginFormConfig[index].icon} sx={{width : "24px", height:"24px"}} />
-                                        <SizedHorizontalBox px={2}/>
-                                        <TextField
-                                             name={property}
-                                             value={loginForm.values[property]}
-                                             onChange={loginForm.handleChange}
-                                             onBlur= {loginForm.handleBlur}
-                                             placeholder={loginFormConfig[index].placeholder}
-                                             error={loginForm.touched[property] && loginForm.errors[property] ? true : false}
-                                             helperText={loginForm.touched[property] && loginForm.errors[property]}
-                                             variant="standard"
-                                             sx={{ 
-                                                  width  : "100%",
-                                             }}
-                                             type={property =="password" ? "password" : "text"}
-
-                                        />
-                                   </Box>
-                                   <SizedVerticalBox py={10}/>
+                              <Box key={index} className={styles.textFieldBox}>
+                                   <Avatar src={loginFormConfig[index].icon} sx={{width : "24px", height:"24px"}} />
+                                   <SizedHorizontalBox px={2}/>
+                                   <TextField
+                                        name={property}
+                                        value={loginForm.values[property]}
+                                        onChange={loginForm.handleChange}
+                                        onBlur= {loginForm.handleBlur}
+                                        placeholder={loginFormConfig[index].placeholder}
+                                        error={loginForm.touched[property] && loginForm.errors[property] ? true : false}
+                                        helperText={loginForm.touched[property] && loginForm.errors[property]}
+                                        variant="standard"
+                                        sx={{ 
+                                             width  : "100%",
+                                        }}
+                                        type={property =="password" ? "password" : "text"}
+                                   />
                               </Box>
                          ))
                     }
 
-               <Link href={"/auth/forgot_password"}>
-                    <Typography>
-                         Forgot Password
-                    </Typography>
-               </Link>
+               <CustomTypography className={styles.forgotPasswordText}>
+                    <Link href={"/auth/forgot_password"}>
+                              Forgot Password
+                    </Link>
+               </CustomTypography>
 
                <PrimaryButton endIcon={true} text="Login" onClick={loginForm.submitForm}/>
 
@@ -87,12 +104,12 @@ export default function Login() {
 
                <OauthButton text="Sign in with Google" startIcon={true} iconsrc={"/googleIcon.svg"} />
 
-               <Typography>
+               <CustomTypography className={styles.notRegisteredFullText}>
                     Not registered yet? &nbsp;
                     <Link href={"/auth/register"}>
                          Sign up
                     </Link>
-               </Typography>
+               </CustomTypography>
 
           </Box>
     )

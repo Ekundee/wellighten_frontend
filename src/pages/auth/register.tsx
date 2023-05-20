@@ -3,8 +3,10 @@ import Register from "@/features/register";
 
 export default function Index(this : any){
      return(
-          <AuthLayout>
-               <Register/>
-          </AuthLayout>
+          <>
+               <AuthLayout>
+                    <Register/> 
+               </AuthLayout>
+          </>
      )
 }

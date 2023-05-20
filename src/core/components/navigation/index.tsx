@@ -9,6 +9,7 @@ import { ArrowBackIos } from "@mui/icons-material";
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { CustomTypography } from "../minor";
 
 
 
@@ -58,7 +59,7 @@ export function BottomNavbar (this: any) {
                                    >
                                         <Avatar src={property.active == 1.5 ? property.whiteIcon : property.themeIcon} style={{width:"32px", height:"32px"}} />
                                         <SizedHorizontalBox px={2}/>
-                                        <Typography
+                                        <CustomTypography
                                              sx={{
                                                   fontFamily: 'Open Sans',
                                                   fontStyle: "normal",
@@ -71,7 +72,7 @@ export function BottomNavbar (this: any) {
                                              }}
                                         >
                                              {property.active == 1.5 && property.text}
-                                        </Typography>
+                                        </CustomTypography>
                                    </Box>
                               ))
                          }
@@ -121,19 +122,22 @@ export function TopAppbar ({ isBack } : any) {
                                    edge="start"
                                    color="inherit"
                                    aria-label="menu"
-                                   sx={{ mr: 2 }}
+                                   // sx={{ mr: 2 }}
                                    onClick={router.back}
                               >
                                    <ArrowBackIos/>
                               </IconButton>
                          }
-                         <Typography
+                         <CustomTypography
                               // sx={{color : "black"}}
+                              fontSize={"1.2rem"}
+                              fontWeight={700}
+                              
                          >
                               {topAppBarText}
-                         </Typography>
+                         </CustomTypography>
                     </Box>
-                    <NotificationsActiveOutlinedIcon sx={{color:"white"}}/>
+                    <NotificationsActiveOutlinedIcon sx={{color:"white", fontSize:"35px"}}/>
                </Toolbar>
           </AppBar>
      )

@@ -1,7 +1,7 @@
 import { PrimaryButton, SecondaryButton } from "@/core/components/buttons";
+import { CustomTypography } from "@/core/components/minor";
 import { topAppBarTextAtom } from "@/core/components/navigation";
 import {  Box, Toolbar } from "@mui/material";
-import { Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -68,7 +68,7 @@ export default function Services() {
                                              height: "100%"
                                         }}
                                    >
-                                        <Typography
+                                        <CustomTypography
                                              sx={{
                                                   fontStyle: "normal",
                                                   fontWeight: 700,
@@ -80,8 +80,8 @@ export default function Services() {
                                              }}
                                         >
                                              {service.headerText}
-                                        </Typography>
-                                        <Typography
+                                        </CustomTypography>
+                                        <CustomTypography
                                              sx={{
                                                   fontStyle: "normal",
                                                   fontWeight: 400,
@@ -91,7 +91,7 @@ export default function Services() {
                                              }}
                                         >
                                              {service.infoText}
-                                        </Typography>
+                                        </CustomTypography>
                                    </Box>
                               </Box>
 

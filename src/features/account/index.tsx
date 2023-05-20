@@ -16,15 +16,20 @@ import React, { useEffect } from "react"
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import { useAtom } from 'jotai';
 import { topAppBarTextAtom } from '@/core/components/navigation';
+import { CustomTypography } from '@/core/components/minor';
+import { useRouter } from 'next/router';
 
 
 export default function Account() {
-     const accountConfig = [
+     const router = useRouter()
+
+     const accountConfig : any = [
           [
                "Profile",
                [{
                     name: "Personal Information",
-                    icon: <Person2OutlinedIcon sx={{ width: 24, height: 24}}/>
+                    icon: <Person2OutlinedIcon sx={{ width: 24, height: 24}}/>,
+                    link: "account_tab/personal_info"
                }]
           ],[
                "History",
@@ -45,19 +50,23 @@ export default function Account() {
                     icon: <DarkModeOutlinedIcon  sx={{ width: 24, height: 24}}/>
                },{
                     name: "Change password",
-                    icon: <LockResetOutlinedIcon  sx={{ width: 24, height: 24}}/>
+                    icon: <LockResetOutlinedIcon  sx={{ width: 24, height: 24}}/>,
+                    link: "account_tab/change_password"
                }]
           ],[
                "Payment",
                [{
                     name: "Deposit",
-                    icon: <PaymentIcon  sx={{ width: 24, height: 24}}/>
+                    icon: <PaymentIcon  sx={{ width: 24, height: 24}}/>,
+                    link: "account_tab/deposit"
                },{
                     name: "Withdraw",
-                    icon: <GetAppOutlinedIcon  sx={{ width: 24, height: 24}}/>
+                    icon: <GetAppOutlinedIcon  sx={{ width: 24, height: 24}}/>,
+                    link: "account_tab/withdraw"
                },{
                     name: "Transfer",
-                    icon: <SendOutlinedIcon  sx={{ width: 24, height: 24}}/>
+                    icon: <SendOutlinedIcon  sx={{ width: 24, height: 24}}/>,
+                    link: "account_tab/transfer"
                }]
           ],[
                "",
@@ -84,9 +93,9 @@ export default function Account() {
                <SizedVerticalBox py={10}/>
                <Box>
                     {
-                         accountConfig.map((section :any, index)=>(
+                         accountConfig.map((section :any, index: number)=>(
                               <Box key={index}>
-                                   <Typography
+                                   <CustomTypography
                                         sx={{
                                              paddingTop: "20px",
                                              paddingBottom: "8px",
@@ -101,7 +110,7 @@ export default function Account() {
                                         }}
                                    >
                                         {section[0]}
-                                   </Typography>
+                                   </CustomTypography>
                                    <Divider/>
                                    {
                                         section[1].map((property : any, index2: any)=>(
@@ -117,6 +126,7 @@ export default function Account() {
                                                        borderBottom: "1px solid #c5c5c5"
 
                                                   }}
+                                                  onClick={()=>router.push(property.link)}
                                              >
                                                   <Box
                                                        sx={{
@@ -126,9 +136,9 @@ export default function Account() {
                                                   >
                                                        {property.icon}
                                                        <SizedHorizontalBox px={10}/>
-                                                       <Typography>
+                                                       <CustomTypography>
                                                             {property.name}
-                                                       </Typography>
+                                                       </CustomTypography>
                                                   </Box>
                                                   {property.name == "Dark mode" ? <Switch/> : <ChevronRightIcon/>}
                                              </Box>

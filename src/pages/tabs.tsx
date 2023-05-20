@@ -7,9 +7,10 @@ import React,{ useEffect, useState } from "react"
 
 export default function Index(props : any){
      const [tab] = useAtom(tabAtom)
-
+    
      return(
           <BottomNavLayout>
+               {/* <TopAppbar/> */}
                { tab != 0 && <TopAppbar/>}
                <Tabs/>
           </BottomNavLayout>

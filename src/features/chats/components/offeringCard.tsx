@@ -1,8 +1,8 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { IServiceCard } from "../interface";
+import { CustomTypography } from "@/core/components/minor";
 
 export default function ServiceCard({ headerText, bodyText, imageUrl, imageAlt, imageWidth, imageHeight} : IServiceCard){
     return(
@@ -13,12 +13,12 @@ export default function ServiceCard({ headerText, bodyText, imageUrl, imageAlt, 
         > 
             <CardContent>
                 <Image alt={imageAlt ? imageAlt : "kiwi star"} src={imageUrl ? imageUrl : "/next.svg"} width={imageWidth ? imageWidth : 50} height={imageHeight ? imageHeight : 50} />
-                <Typography>
+                <CustomTypography>
                     {headerText}
-                </Typography>
-                <Typography>
+                </CustomTypography>
+                <CustomTypography>
                     {bodyText}
-                </Typography>
+                </CustomTypography>
             </CardContent>                  
         </Card>     
     )

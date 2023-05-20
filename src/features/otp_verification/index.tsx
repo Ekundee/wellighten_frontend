@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import * as yup from 'yup' 
 import { SizedHorizontalBox, SizedVerticalBox } from "@/core/components/box";
-import { LogoNText, Or } from "@/core/components/minor";
+import { CustomTypography, LogoNText, Or } from "@/core/components/minor";
 import { useRouter } from "next/router";
 import styles from "./style.module.css"
 import { useAtom } from "jotai";
@@ -22,7 +22,7 @@ export default function Otp_verification() {
           if (completed) {
             // Render a completed state
                return  (
-                    <Typography
+                    <CustomTypography
                          sx={{
                               width: "100%",
                               textAlign: "right",
@@ -36,12 +36,12 @@ export default function Otp_verification() {
                          <Link href={"/auth/otp_verification"}>
                               Resend Token
                          </Link>
-                    </Typography>
+                    </CustomTypography>
                )
           } else {
             // Render a countdown
             return(
-               <Typography
+               <CustomTypography
                     sx={{
                          width: "100%",
                          textAlign: "right",
@@ -54,7 +54,7 @@ export default function Otp_verification() {
                >
                     Resend token in&nbsp;
                     <span>{minutes}0:{seconds}</span>
-               </Typography>
+               </CustomTypography>
             )
           }
      };
@@ -82,7 +82,7 @@ export default function Otp_verification() {
                <Box className={styles.otpVerificationMinorBox}>
                     <Image src={"/padlock.svg"} width={80} height={90} alt="padlock"/>
                     <SizedVerticalBox py={5}/>
-                    <Typography
+                    <CustomTypography
                          sx={{
                               fontFamily: 'Sofia Sans',
                               fontStyle: "normal",
@@ -93,7 +93,7 @@ export default function Otp_verification() {
                          }}
                     >
                          A  one-time password was sent to chiedozie121@gmail.com
-                    </Typography>
+                    </CustomTypography>
                     <SizedVerticalBox py={10}/>
                     <Box
                          sx={{
@@ -148,7 +148,7 @@ export default function Otp_verification() {
                     </Box>    
                     <SizedVerticalBox py={5}/>
 
-                    <Typography
+                    <CustomTypography
                          sx={{
                               width: "100%",
                               textAlign: "center",
@@ -161,7 +161,7 @@ export default function Otp_verification() {
                     >
                          {tokenForm.errors.valueOne ? "Please enter the token" : tokenForm.errors.valueTwo ? "Please enter the token" :tokenForm.errors.valueThree ? "Please enter the token" :tokenForm.errors.valueFour ? "Please enter the token" : "" }
                               
-                    </Typography>
+                    </CustomTypography>
 
                     <SizedVerticalBox py={15}/>
                     

@@ -1,21 +1,43 @@
-.orBox{
-     width: 100%;
-     position: relative;
+.loginIllusBox{
+     padding-top: 20px;
+     padding-bottom: 20px;
+}
+
+
+.loginIllus {
+     background-image: url('/loginillus.png');
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+     width: 320px;
+     height: 320px;
+     margin: auto;
+}
+
+.textFieldBox{
+     padding-top: 12px;
+     padding-bottom: 12px;
      display: flex;
-     justify-content: space-between;
+     align-items: center;
 }
 
-.orSeparator{
-     background-color: var(--wellighten_grey);
+.forgotPasswordText{
+     padding-top: 12px;
+     padding-bottom: 12px;
+     color: var(--wellighten_blue); 
+     font-weight: 400;
+     font-size: 0.9rem;
+     justify-items: center;
 }
 
-.orText{
-     font-style: normal;
-     font-weight: 700;
-     font-size: 7.90262px;
-     line-height: 10px;
-     text-align: center;
-     letter-spacing: -0.130393px;
-     color: var(--wellighten_grey);
+.termsNConditionText a{
+     text-decoration: none;
+}
 
+
+.notRegisteredFullText{
+     padding-top: 12px;
+     padding-bottom: 12px;
+     font-weight: 400;
+     font-size: 1rem;
+     color: var(--wellighten_deeper_grey);
 }

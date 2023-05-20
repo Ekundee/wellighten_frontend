@@ -1,11 +1,12 @@
 import { TopAppbar, topAppBarTextAtom } from "@/core/components/navigation";
-import { Box, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react"
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { diagnosisPicBase64StringAtom, diagnosisPicFormatStringAtom } from "./state";
+import { CustomTypography } from "@/core/components/minor";
+import { Box } from "@mui/material";
 
 
 export default function VisualDiagnosis() {
@@ -62,13 +63,13 @@ export default function VisualDiagnosis() {
                                    <Box>
                                         <Image src={type.icon} width={50} height={50} alt="services" />
                                    </Box>
-                                   <Typography>
+                                   <CustomTypography>
                                         {type.name}
-                                   </Typography>
+                                   </CustomTypography>
                               </Box>
-                              <Typography>
+                              <CustomTypography>
                                    {type.tagLine}
-                              </Typography>
+                              </CustomTypography>
                          </Box>
                     ))
                }

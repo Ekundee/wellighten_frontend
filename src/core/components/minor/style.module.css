@@ -13,14 +13,9 @@
 }
 
 .orText{
-     font-style: normal;
-     font-weight: 700;
-     font-size: 7.90262px;
-     line-height: 10px;
+     font-size: 0.9rem;
      text-align: center;
-     letter-spacing: -0.130393px;
      color: var(--wellighten_grey);
-
 }
 
 
@@ -31,12 +26,7 @@
 }
 
 .logoNTextBox p{
-     font-family: 'Sofia Sans';
-     font-style: normal;
      font-weight: 700;
-     font-size: 24px;
-     line-height: 29px;
-     text-align: center;
-     letter-spacing: -0.165px;
+     font-size: 1.8rem;
      color: var(--wellighten_black);
 }

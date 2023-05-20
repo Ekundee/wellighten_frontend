@@ -43,3 +43,15 @@ export function SizedVerticalBox({px, py} : ISixedBoxProp){
           </Box>
      )
 }
+
+export function AccountTabPaddedBox({ children } : any){
+     return(
+          <Box
+               sx={{
+                    paddingX : "30px"
+               }}
+          >
+               {children}
+          </Box>
+     )
+}

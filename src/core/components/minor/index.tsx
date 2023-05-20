@@ -1,8 +1,12 @@
 import Box from "@mui/material/Box"
-import Typography from "@mui/material/Typography"
 import styles from "./style.module.css"
 import Image from "next/image";
 import { SizedHorizontalBox } from "../box";
+import { Typography } from "@mui/material";
+import { withStyles } from "@mui/styles";
+import { Sofia_Sans } from "next/font/google";
+
+const sofia_Sans = Sofia_Sans({ subsets: ['latin'] })
 
 
 export function Or(){
@@ -11,9 +15,9 @@ export function Or(){
                <Box className={styles.orSeparator}>
                </Box>
                <SizedHorizontalBox px={5}/>
-               <Typography className={styles.orText}>
+               <CustomTypography className={styles.orText}>
                     OR
-               </Typography>
+               </CustomTypography>
                <SizedHorizontalBox px={5}/>
                <Box className={styles.orSeparator}>
                </Box>
@@ -25,11 +29,19 @@ export function Or(){
 export function LogoNText({ text } : any){
      return(
           <Box className={styles.logoNTextBox}>
-               <Image src={"/logo.svg"} width={50} height={50} alt="Wellighten logo"/>
-               <SizedHorizontalBox px={3}/>
-               <Typography>
+               <Image src={"/logo.svg"} width={60} height={80} alt="Wellighten logo"/>
+               <SizedHorizontalBox px={6}/>
+               <CustomTypography>
                     {text}
-               </Typography>
+               </CustomTypography>
           </Box>
      )
 }
+
+
+
+export const CustomTypography = withStyles({
+     "root" : {
+          fontFamily : sofia_Sans.style.fontFamily
+     }
+})(Typography)

@@ -14,7 +14,7 @@ import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 export default function Index(){
      return(
           <>
-          <BottomNavbar/>
+          {/* <BottomNavbar/>
 
           <PaymentIcon/>
 
@@ -36,8 +36,8 @@ export default function Index(){
 
           <GetAppOutlinedIcon/>
 
-          <Person2OutlinedIcon/>
-
+          <Person2OutlinedIcon/> */}
+              
           </>
      )
 }

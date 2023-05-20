@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import { Typography } from "@mui/material";
 import { SettingsInputComponent } from "@mui/icons-material";
+import { CustomTypography } from "../minor";
 
 
 export function PrimaryButton (buttonProp: any) {
@@ -88,7 +89,7 @@ export function OauthButton ({ text, title, styles, endIcon=false, startIcon=fal
                />}
 
           >
-               <Typography
+               <CustomTypography
                     sx={{
                          fontStyle: "normal",
                          fontWeight: 500,
@@ -97,7 +98,7 @@ export function OauthButton ({ text, title, styles, endIcon=false, startIcon=fal
                     }}
                >
                     {text ? text : "Oauth Button"}
-               </Typography>
+               </CustomTypography>
           </Button>
      )
 }

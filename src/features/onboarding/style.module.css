@@ -13,6 +13,10 @@
      align-items: center;
 }
 
+.skipBar p {
+     font-size: 1.3rem;
+}
+
 .slider{
      padding-bottom: 5px;
 }
@@ -25,6 +29,8 @@
      letter-spacing: -0.165px;
      color: var(--wellighten_purplishblue);
      padding: 10px;
+     font-size: 1.8rem;
+     padding-top: 40px;
 }
 
 .slide p{
@@ -32,8 +38,9 @@
      font-style: normal;
      font-weight: 400;
      font-size: 16px;
-     line-height: 19px;
+     line-height: 24px;
      text-align: center;
      letter-spacing: -0.165px;
      color: var(--black);
+     font-size: 1.3rem;
 }
