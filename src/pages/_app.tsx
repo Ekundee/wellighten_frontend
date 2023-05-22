@@ -7,6 +7,7 @@ import { themeAtom } from '@/core/utils/state';
 import { darkTheme, lightTheme } from '@/core/utils/theme';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { CustomModal, CustomSnackBar } from '@/core/components/popups';
+import ProtectedScreen from '@/core/components/layouts/protected.layout';
 
 export default function App({ Component, pageProps }: AppProps) {
      if (typeof window !== "undefined") {
@@ -15,11 +16,13 @@ export default function App({ Component, pageProps }: AppProps) {
         }
      return(
           <Provider>
-               <CustomModal>
-                    <CustomSnackBar>
-                         <Component {...pageProps} />
-                    </CustomSnackBar>
-               </CustomModal>
+               <ProtectedScreen>
+                    <CustomModal>
+                         <CustomSnackBar>
+                                   <Component {...pageProps} />
+                         </CustomSnackBar>
+                    </CustomModal>
+               </ProtectedScreen>
           </Provider>
      )
 }

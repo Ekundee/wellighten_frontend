@@ -13,6 +13,7 @@ import { ISignIn, ISignUp } from "@/api/authorization/interface";
 import { useAtom } from "jotai";
 import { snackBarMessageAtom, snackBarOpenAtom, snackBarSeverityAtom } from "@/core/components/popups/state";
 import { alertSeverity } from "@/core/utils/enum";
+import { getCapacitorStorageData, setCapacitorStorageData } from "@/core/utils/utilFunction";
 
 export default function Login() {
      const router = useRouter()
@@ -46,7 +47,7 @@ export default function Login() {
                     Password: values.password
                }
                
-               const signin = await SignInAPI(signinDTO);
+               const signin : any = await SignInAPI(signinDTO);
                if(signin.Status != 200){
                     setSnackBarSeverityState(alertSeverity.ERROR)
                }else{
@@ -56,11 +57,11 @@ export default function Login() {
                setSnackBarOpenState(true)
 
                if(signin.Status == 200){
+                    await setCapacitorStorageData("wellighton_authtoken", signin.Data.AuthToken)
                     setTimeout(()=>{
                          return router.push("/tabs")
                     },2000)
                }
-               // router.push("/tabs")
           },
      })
     return(

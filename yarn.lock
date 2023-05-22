@@ -135,10 +135,10 @@
   resolved "https://registry.yarnpkg.com/@capacitor/camera/-/camera-4.1.4.tgz#5d019f88d1f3547b537270e35bcb96084eb48df6"
   integrity sha512-7f4n7PlnstYsdGyxc0Kc4hIyS6csFLOjXvffm7pJsuy9pSo+kfdOPdYgGg360QwbUAmA+Yv+J1ZW1eFIwgvWrQ==
 
-"@capacitor/cli@^5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-5.0.2.tgz#2513a8503fababa6de12493b6f8819e1562cc2d3"
-  integrity sha512-FiNr7s3NbaQqsqmd0YBNRWzgzbczuha/B7qjXcyrxU2abJ5WQCiJdIAIaSjX2AwTXlADQOIErr/t76LnAa9VqA==
+"@capacitor/cli@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-5.0.3.tgz#5f0549f4b731bc999cafd1b9dc89925bbd51ac13"
+  integrity sha512-VPmd/uKSCYqeLgNTrG2wVaMoCX8lo2UuXFVwP54W4nXPyG6LsDuOKYytkBItTAJrI3KEXdZWyRFbXjIY48/m6g==
   dependencies:
     "@ionic/cli-framework-output" "^2.2.5"
     "@ionic/utils-fs" "^3.1.6"
@@ -174,6 +174,11 @@
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@capacitor/preferences/-/preferences-5.0.2.tgz#64559f1a89310f48a9f9014ecfd1434e9a6e454c"
   integrity sha512-NOBA4TFC9sq0UU13dKHCDqNsD3X5TGPFgtGvRcJorBvbllUwMMBAbkjF5iCVsoenAN55d77Qh9wXufewdMpXjg==
+
+"@capacitor/storage@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@capacitor/storage/-/storage-1.2.5.tgz#48206869cbbf1404fcdbb5c440a882140bd3abd8"
+  integrity sha512-pWhnw4U7wN/zFV4lA4BLMypSufTktCbk548Yk4whSb0KAq3R0mLfSubRIHkGdcPqQWCsM6g/zUuszurhz6ncWQ==
 
 "@colors/colors@1.5.0":
   version "1.5.0"

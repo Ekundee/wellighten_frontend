@@ -10,10 +10,21 @@ import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import GetAppOutlinedIcon from '@mui/icons-material/GetAppOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
+import { useEffect, useState } from "react";
+import { getCapacitorStorageData, setCapacitorStorageData } from "@/core/utils/utilFunction";
 
 export default function Index(){
+     const [i,seti] : any = useState("o")
+     // setCapacitorStorageData("n", "p")
+     useEffect(()=>{
+          getCapacitorStorageData("n").then((v)=>{
+               seti(v)
+               console.log(v)
+          })
+     })
      return(
           <>
+          {i}
           {/* <BottomNavbar/>
 
           <PaymentIcon/>
