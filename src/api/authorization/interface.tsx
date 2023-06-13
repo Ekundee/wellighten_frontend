@@ -9,5 +9,11 @@ export interface ISignUp {
 
 export interface ISignIn {
      Email: string,
-     Password: string
+     Password: string,
+     Role: string
+}
+
+export interface IChangePassword {
+     OldPassword: string,
+     NewPassword: string
 }

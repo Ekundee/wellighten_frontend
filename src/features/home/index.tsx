@@ -1,9 +1,13 @@
 import ConsultationCard from "./components/consultationCard";
-import { Box, Grid, List, Paper, Stack, Chip, TextField } from "@mui/material"
+import { Box, Grid, List, Paper, Stack, Chip, TextField, IconButton, Badge } from "@mui/material"
 import TopDoctorCard from "./components/doctorCard";
 import { Card, CardContent} from "@mui/material"
 import { CustomTypography } from "@/core/components/minor";
 import { Search } from "@mui/icons-material";
+import Slider from "react-slick";
+import styles from "./style.module.css"
+import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
+
 export default function Home() {
      const consultationCardConfig =[
           {
@@ -50,6 +54,17 @@ export default function Home() {
                specialization_area: "Eye doctor"
           },
      ]
+
+     var sliderConfig = {
+          dots: false,
+          infinite: false,
+          speed: 500,
+          slidesToShow: 1.5,
+          slidesToScroll: 0.1,
+          // onSwipe: (swipeDirection : string)=>handleSwipe(swipeDirection)
+     }
+
+
      return(
           <>
           <Box
@@ -58,18 +73,69 @@ export default function Home() {
                     width: "100%",
                     height: "400px",
                     backgroundSize: "cover",
-                    padding: "20px"
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection : "column",
+                    justifyContent: "space-between"
                }}
           >
+               <Box
+                    sx={{
+                         width: "100%",
+                         height: "290px",
+                         display: "flex",
+                         flexDirection: "column",
+                         justifyContent: "space-between"
+                    }}
+               > 
+                    <Stack direction={"row"} justifyContent={"space-between"}>
+                         <img src="/homelogo.svg" style={{scale : "1.2", left: "5%", position: "relative"}}/>
+                         <img src="/heartrate.svg"/>
+                    </Stack>
 
-               <img src="/homelogo.svg" width="200px" height={"50px"}  style={{ display: "flex", justifyContent:"start", textAlign: "center"}}/>
-               <img src="/heartrate.svg" width="400px" height={"50px"} />
-               <CustomTypography>
-                    Welcome, Olu
-               </CustomTypography>
-               <CustomTypography>
-                    Have a nice day !!
-               </CustomTypography>
+               <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Stack direction={"column"}>
+                         <CustomTypography
+                              sx={{
+                                   color: "white",
+                                   fontSize: "2.2rem",
+                              }}
+                         >
+                              Welcome, <span style={{
+                                   fontSize: "2.5rem",
+                                   fontWeight: 700
+                              }}>Olu</span>
+                         </CustomTypography>
+                         <CustomTypography
+                              sx={{
+                                   color: "white",
+                                   fontSize: "1.8rem",
+                              }}
+                         >
+                              Have a nice day !!
+                         </CustomTypography>
+                    </Stack>
+
+                    
+                    {/* <Notification> */}
+                    <IconButton
+                         sx={{
+                              backgroundColor: "rgba(255,255,255,0.1)",
+                              width: "70px",
+                              height: "70px",
+                         }}
+                    >
+                         <Badge sx={{
+                              color: "white",
+                              "& .MuiBadge-badge": { fontSize: "1rem"}
+                         }} badgeContent={1}>
+                              <NotificationsActiveOutlinedIcon sx={{
+                                   fontSize: "45px"
+                              }} />
+                         </Badge>
+                    </IconButton>
+               </Stack>
+
 
                <TextField
                     InputProps={{
@@ -97,66 +163,61 @@ export default function Home() {
                     }}
                     // type={property =="password" ? "password" : "text"}
                />
+               </Box>
+
                
           </Box>
-          
-          {/* Services */}
-          <CustomTypography>
-               Our services
-          </CustomTypography>
-               <Grid container spacing={{ xs: 2 }} columns={{ xs: 3 }}>
-                    {
-                         consultationCardConfig.map((consultationCard, index)=>(
-                              <Grid item xs={1} key={index}
-                                   sx={{
-                                        display: "grid",
-                                        placeItems: "center"
-                                   }}
-                              >
-                                   <ConsultationCard imgsrc={consultationCard.imgsrc} label={consultationCard.label}/>
-                              </Grid>
-                         ))
-                    }
-               </Grid>
 
-          <CustomTypography>
-               Top Doctors
-          </CustomTypography>
-              
-               <Paper style={{maxHeight: 200, overflowX: 'auto'}}>
-                    <List component={Stack} direction="row">
+          <Box
+               sx={{
+                    px: "20px",
+                    py: "40px"
+               }}
+          >
+               {/* Services */}
+               <CustomTypography gutterBottom>
+                    Our services
+               </CustomTypography>
+
+          
+
+                    <Grid container spacing={{ xs: 2 }} columns={{ xs: 3 }}>
+                         {
+                              consultationCardConfig.map((consultationCard, index)=>(
+                                   <Grid item xs={1} key={index}
+                                        sx={{
+                                             display: "grid",
+                                             placeItems: "center"
+                                        }}
+                                   >
+                                        <ConsultationCard imgsrc={consultationCard.imgsrc} label={consultationCard.label}/>
+                                   </Grid>
+                              ))
+                         }
+                    </Grid>
+
+          </Box>
+
+          <Box
+               sx={{
+                    pl: "20px",
+                    pb: "40px"
+               }}
+          >
+               <CustomTypography gutterBottom>
+                    Top Doctors
+               </CustomTypography>
+               <Slider 
+                    {...sliderConfig}
+                    className={styles.slider}
+                    >
                     {
                          topDoctorsCardConfig.map((topDoctor, index) =>(
-                              <TopDoctorCard doctor_image_src={topDoctor.doctor_image_src} name={topDoctor.name} specialization_area ={topDoctor.specialization_area}/>
+                              <TopDoctorCard key={index} doctor_image_src={topDoctor.doctor_image_src} name={topDoctor.name} specialization_area ={topDoctor.specialization_area}/>
                          ))
                     }
-                    </List>
-               </Paper>
-
-
-
-
-                    <Paper style={{maxHeight: 200, overflowX: 'auto'}}>
-          <List component={Stack} direction="row">
-               <img src="/testpic.png"/>
-               <img src="/testpic.png"/>
-               <img src="/testpic.png"/>
-               <img src="/testpic.png"/>
-               <Card
-                    sx={{
-                         backgroundColor:"red",
-                         width: "500px",
-                         height: "200px"
-                    }}
-               >    
-                    <CardContent>
-                         hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-                    </CardContent>
-               </Card>
-               <img src="/testpic.png"/>
-
-          </List>
-          </Paper>
+               </Slider>
+          </Box>
           </>
     )
 }

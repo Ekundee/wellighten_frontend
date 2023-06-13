@@ -6,19 +6,19 @@ export default function TopDoctorCard ({ doctor_image_src, name, specialization_
           <Card 
                elevation={3}
                sx={{
-                    width: "1000px",
-                    height: "500px",
+                    width: "250px",
+                    height: "300px",
+                    p: "3px"
                }}
           >
                <CardMedia
-                    sx={{ height: 140 }}
+                    sx={{ height: "70%", width: "100%", display: "flex",alignItems: "center" , justifyContent: "center"}}
                     image={doctor_image_src}
                     title="green iguana"
                />
                <CardContent
                     sx={{
                          display: "grid",
-                         placeItems : "center"    
                     }}
                >
                     <CustomTypography gutterBottom>

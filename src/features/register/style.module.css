@@ -1,6 +1,6 @@
 .registerIllusBox{
-     padding-top: 40px;
-     padding-bottom: 40px;
+     padding-top: 20px;
+     padding-bottom: 20px;
 }
 
 
@@ -8,10 +8,12 @@
      background-image: url('/registerIllus.png');
      background-repeat: no-repeat;
      background-size: 100% 100%;
-     width: 290px;
-     height: 290px;
+     width: 90%;
+     height: 260px;
      margin: auto;
 }
+
+
 
 .textFieldBox{
      padding-top: 12px;

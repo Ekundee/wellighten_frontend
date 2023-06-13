@@ -16,7 +16,7 @@ export default function Services() {
                icon: "/symptomDiagnosisService.svg",
                headerText: "Symptom Diagnosis",
                infoText: "Take control of your health and get a personalized diagnosis of your symptoms, so you can get the right treatment and start feeling better, faster.",
-               link: "/tabs"
+               link: "/services/symptom_diagnosis"
           }, {
                icon: "/visualDiagnosisService.svg",
                headerText: "Visual Diagnosis",

@@ -29,8 +29,9 @@ export const POST_SUSPEND_USER = "/deactivate/user"
 
 // CONSULTATION
 export const POST_SEND_MESSAGE = "/message"
+export const GET_MESSAGE_WITH_PARTICIPANT = "getMessageWithParticipant"
 export const GET_ALL_USER_MESSAGES = "/all_user/message"
-
+export const GET_ALL_USER_FRIENDS = "/all_user/friends"
 
 
 // PROFILE

@@ -12,6 +12,7 @@ import GetAppOutlinedIcon from '@mui/icons-material/GetAppOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import { useEffect, useState } from "react";
 import { getCapacitorStorageData, setCapacitorStorageData } from "@/core/utils/utilFunction";
+import Receipt from "@/features/receipt";
 
 export default function Index(){
      const [i,seti] : any = useState("o")
@@ -24,7 +25,6 @@ export default function Index(){
      })
      return(
           <>
-          {i}
           {/* <BottomNavbar/>
 
           <PaymentIcon/>
@@ -48,7 +48,8 @@ export default function Index(){
           <GetAppOutlinedIcon/>
 
           <Person2OutlinedIcon/> */}
-              
+          
+          <Receipt/>
           </>
      )
 }

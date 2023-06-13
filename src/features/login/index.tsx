@@ -14,6 +14,8 @@ import { useAtom } from "jotai";
 import { snackBarMessageAtom, snackBarOpenAtom, snackBarSeverityAtom } from "@/core/components/popups/state";
 import { alertSeverity } from "@/core/utils/enum";
 import { getCapacitorStorageData, setCapacitorStorageData } from "@/core/utils/utilFunction";
+import TabSwitcher from "../register/components/tabSwitcher";
+import { authTabAtom } from "../register/state";
 
 export default function Login() {
      const router = useRouter()
@@ -21,6 +23,7 @@ export default function Login() {
      const [snackBarOpenState , setSnackBarOpenState] : any= useAtom(snackBarOpenAtom)
      const [snackBarMessageState , setSnackBarMessageState] : any = useAtom(snackBarMessageAtom)
      const [snackBarSeverityState , setSnackBarSeverityState] : any = useAtom(snackBarSeverityAtom)
+     const [authTab,] : any = useAtom(authTabAtom)
 
      const loginFormConfig =[
           {
@@ -44,7 +47,8 @@ export default function Login() {
           onSubmit : async (values)=>{
                const signinDTO : ISignIn = {
                     Email: values.email,
-                    Password: values.password
+                    Password: values.password,
+                    Role: authTab == "user" ? "USER" : "CONSULTANT"
                }
                
                const signin : any = await SignInAPI(signinDTO);
@@ -69,6 +73,9 @@ export default function Login() {
                <Box className={styles.loginIllusBox}>
                     <Box className={styles.loginIllus}></Box>
                </Box>
+
+               <TabSwitcher/>
+
               <LogoNText text="Sign in"/>             
                {
                          Object.keys(loginForm.values).map((property,index)=>(

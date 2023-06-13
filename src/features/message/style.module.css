@@ -14,8 +14,7 @@
 }
 
 .skipBar p {
-     font-size: 1rem;
-     color: rgb(84, 84, 84);
+     font-size: 1.3rem;
 }
 
 .slider{
@@ -23,14 +22,14 @@
 }
 
 .slide h3{
-     font-weight: 700;
+     font-weight: 600;
      font-size: 20px;
      line-height: 24px;
      text-align: center;
      letter-spacing: -0.165px;
      color: var(--wellighten_purplishblue);
      padding: 10px;
-     font-size: 1.5rem;
+     font-size: 1.8rem;
      padding-top: 40px;
 }
 
@@ -38,13 +37,10 @@
      padding: 5px;
      font-style: normal;
      font-weight: 400;
-     /* line-height: 24px; */
+     font-size: 16px;
+     line-height: 24px;
      text-align: center;
      letter-spacing: -0.165px;
      color: var(--black);
-     font-size: 1.1rem;
-}
-
-.skip {
-     font-size: 4px;
+     font-size: 1.3rem;
 }

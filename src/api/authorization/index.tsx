@@ -1,5 +1,5 @@
-import { ISignIn, ISignUp } from "./interface";
-import { POST_SIGNIN, POST_SIGNUP } from "../url";
+import { IChangePassword, ISignIn, ISignUp } from "./interface";
+import { POST_CHANGE_PASSWORD, POST_SIGNIN, POST_SIGNUP } from "../url";
 import Requester, { IAxiosResponse } from "../util";
 import axios from "axios";
 
@@ -32,3 +32,22 @@ export async function SignInAPI(model : ISignIn) {
           return response
      }
 }
+
+
+
+// Change password
+export async function ChangePasswordAPI(model : IChangePassword) {
+     try{
+          const response : any = await Requester.post(POST_CHANGE_PASSWORD, model)
+          const { Status, Data, Message } : IAxiosResponse = response.data
+          console.log({ Status, Data, Message })
+          return { Status, Data, Message } 
+     }catch(e : any){
+          const response : IAxiosResponse = { Status : e?.response?.status ? e.response.status : 400 , Data : e?.response?.data ? e.response.data : e.message }
+          const { Status, Data } : IAxiosResponse = response
+          return response
+     }
+}
+
+
+POST_CHANGE_PASSWORD

@@ -61,7 +61,7 @@ export default function Onboarding(this: any) {
      }
      
      var sliderConfig = {
-          dots: true,
+          dots: false,
           infinite: false,
           speed: 500,
           slidesToShow: 1,
@@ -86,8 +86,10 @@ export default function Onboarding(this: any) {
                showComponent &&
                     <Box className={styles.onboardingBox}>
                          <Box className={styles.skipBar}>
-                              <Image src={"/logo.svg"} width={80} height={80} alt="Wellighten logo"/>
-                              <CustomTypography onClick={()=>setOnboarding(2)}>
+                              <Image src={"/logo.svg"} width={50} height={50} alt="Wellighten logo"/>
+                              <CustomTypography
+                                   onClick={()=>setOnboarding(2)}
+                              >
                                    Skip
                               </CustomTypography>
                          </Box>
@@ -99,8 +101,8 @@ export default function Onboarding(this: any) {
                                                   backgroundImage: `url(${screen.image})`,
                                                   backgroundRepeat: "no-repeat",
                                                   backgroundSize: "100% 100%",
-                                                  width:280,
-                                                  height:330,
+                                                  width:250,
+                                                  height:295,
                                                   margin: "auto",
                                              }}
                                         >
@@ -115,7 +117,7 @@ export default function Onboarding(this: any) {
                               ))}
                          </Slider>
                          <CenteredBox>
-                              <Image src={`/${onboardingConfig[onboarding].proceed}`}  height={80} width={onboarding != onboardingConfig.length-1 ? 80 : 245} alt="Wellighten logo" onClick={handleChangeScreen}/>
+                              <Image src={`/${onboardingConfig[onboarding].proceed}`}  height={65} width={onboarding != onboardingConfig.length-1 ? 65 : 245} alt="Wellighten logo" onClick={handleChangeScreen}/>
                          </CenteredBox>
                     </Box>
           }

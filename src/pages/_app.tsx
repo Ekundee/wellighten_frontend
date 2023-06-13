@@ -8,6 +8,7 @@ import { darkTheme, lightTheme } from '@/core/utils/theme';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { CustomModal, CustomSnackBar } from '@/core/components/popups';
 import ProtectedScreen from '@/core/components/layouts/protected.layout';
+import LoaderScreen from '@/core/components/layouts/loader.layout';
 
 export default function App({ Component, pageProps }: AppProps) {
      if (typeof window !== "undefined") {

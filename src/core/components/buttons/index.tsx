@@ -1,12 +1,12 @@
 import Button from "@mui/material/Button";
 import { ButtonProp } from "./interface";
 import Avatar from "@mui/material/Avatar";
-import { Box, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import { SettingsInputComponent } from "@mui/icons-material";
 import { useState } from "react"
 import { display } from "@mui/system";
 import { CustomTypography } from "../minor";
-
+import EastIcon from '@mui/icons-material/East';
 
 
 
@@ -163,5 +163,32 @@ export function PicButton (buttonProp: any) {
                {...buttonProp}
           >             
           </Box>
+     )
+}
+
+export function EastArrowButton ({onclick} : any){
+     return(
+          <IconButton
+               sx={{
+                    width: "65px",
+                    height: "65px",
+                    borderRadius: "65px",
+                    backgroundColor: "#4E27EB",
+                    position: "fixed",
+                    zIndex: "2",
+                    bottom: "30px",
+                    right: "30px",
+                    boxShadow: "0px 1px 5px 1px grey"
+               }}
+               onClick={onclick}
+          >
+               <EastIcon
+                    sx={{
+                         color: "white",
+                         fontSize: "40px",
+                         borderRadius: "15px"
+                    }}
+               />
+          </IconButton>
      )
 }

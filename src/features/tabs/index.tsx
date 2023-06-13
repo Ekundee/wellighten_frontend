@@ -7,7 +7,7 @@ import styles from "./style.module.css"
 import { SizedVerticalBox } from "@/core/components/box";
 import React from "react"
 import { Box } from "@mui/material";
-import { topAppBarTextAtom } from "@/core/components/navigation";
+import { TopAppbar, topAppBarTextAtom } from "@/core/components/navigation";
 
 export const tabAtom = atom(0)
 export default function Tabs() {
@@ -51,6 +51,7 @@ export default function Tabs() {
      }
 
      return(
+          <>
           <Slider 
                ref={slider => slider?.slickGoTo(tab)} {...sliderConfig}
                className={styles.slider}
@@ -63,5 +64,6 @@ export default function Tabs() {
                     ))
                }
           </Slider>
+          </>
     )
 }

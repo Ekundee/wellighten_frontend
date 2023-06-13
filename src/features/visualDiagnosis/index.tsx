@@ -58,16 +58,52 @@ export default function VisualDiagnosis() {
                <TopAppbar isBack={true}/>
                {
                     visualDiagnosisTypeConfig.map((type, index)=>(
-                         <Box key={index} onClick={(e)=>handleCaptureNRouting(e,type.link)}>
-                              <Box>
-                                   <Box>
-                                        <Image src={type.icon} width={50} height={50} alt="services" />
+                         <Box key={index} onClick={(e)=>handleCaptureNRouting(e,type.link)}
+                              sx={{
+                                   width : "100%",
+                                   minHeight: "400px",
+                                   display: "flex",
+                                   justifyContent: "center",
+                                   alignItems : "center",
+                                   flexDirection :"column",
+                                   borderBottom: "2px solid grey"
+                              }}
+                         >
+                              <Box
+                                   sx={{
+                                        width: "130px",
+                                   }}
+                              >
+                                   <Box
+                                        sx={{
+                                             width: "100%",
+                                             height: "120px",
+                                             boxShadow: "0px 0px 20px 2px grey"
+                                        }}
+                                   >
+                                        <img src={type.icon} width={"100%"} height={"100%"} alt="services" />
                                    </Box>
-                                   <CustomTypography>
+                                   <CustomTypography gutterBottom 
+                                        sx={{
+                                             color: "var(--wellighten_purplishblue)",
+                                             fontSize: "1.7rem",
+                                             fontWeight: "600",
+                                             textAlign: "center",
+                                             lineHeight: "1.2",
+                                             pt: "20px"
+                                        }}
+                                   >
                                         {type.name}
                                    </CustomTypography>
                               </Box>
-                              <CustomTypography>
+                              <CustomTypography
+                                   sx={{
+                                        width: "80%",
+                                        textAlign : "center",
+                                        pt: "10px",
+                                        fontSize: "1.2rem"
+                                   }}
+                              >
                                    {type.tagLine}
                               </CustomTypography>
                          </Box>

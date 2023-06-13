@@ -5,20 +5,46 @@ import { PasswordOutlined } from "@mui/icons-material";
 import { Box, IconButton, TextField } from "@mui/material"
 import { useFormik } from "formik";
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import { IChangePassword } from "@/api/authorization/interface";
+import { ChangePasswordAPI } from "@/api/authorization";
+import { useAtom } from "jotai";
+import { snackBarMessageAtom, snackBarOpenAtom, snackBarSeverityAtom } from "@/core/components/popups/state";
+import { alertSeverity } from "@/core/utils/enum";
 
 export default function ChangePassword() {
      
-     const changePasswordFormConfig : any = useFormik({
+     const [snackBarOpenState , setSnackBarOpenState] : any= useAtom(snackBarOpenAtom)
+     const [snackBarMessageState , setSnackBarMessageState] : any = useAtom(snackBarMessageAtom)
+     const [snackBarSeverityState , setSnackBarSeverityState] : any = useAtom(snackBarSeverityAtom)
+
+     const changePasswordFormConfig :any = useFormik({
           initialValues : {
                oldPassword: "",
                newPassword: "",
                confirmPassword: ""
           },
-          onSubmit: (values)=>{
-               console.log(values)
+          onSubmit: async (values)=>{
+               const {oldPassword, newPassword} = values
+               const model : IChangePassword = { 
+                    OldPassword : oldPassword,
+                    NewPassword : newPassword
+               }
+               const changePassword = await ChangePasswordAPI(model)
+
+               if(changePassword.Status != 200){
+                    setSnackBarSeverityState(alertSeverity.ERROR)
+               }else{
+                    setSnackBarSeverityState(alertSeverity.SUCCESS)
+               }
+               setSnackBarMessageState(changePassword?.Message)
+               setSnackBarOpenState(true)
+               console.log(changePassword)
           }
      })
      const propertyNames = ["Old Password", "New password", "Confirm Password"]
+
+
+
 
      return(
           <AccountTabPaddedBox>
@@ -41,19 +67,12 @@ export default function ChangePassword() {
                          </Box>
                     ))
                }
-               <TextField
-                    InputProps={{
-                         endAdornment: <IconButton>
-                              <VisibilityOutlinedIcon/>
-                         </IconButton>
-                    }}
-               />
                <Box
                     sx={{
                          paddingTop: "15px"
                     }}
                >
-                    <PrimaryButton text="Save"/>
+                    <PrimaryButton text="Save" onClick={changePasswordFormConfig.submitForm}/>
                </Box>
           </AccountTabPaddedBox>
      )
