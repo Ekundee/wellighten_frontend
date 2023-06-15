@@ -1,5 +1,5 @@
-import { IChangePassword, ISignIn, ISignUp } from "./interface";
-import { POST_CHANGE_PASSWORD, POST_SIGNIN, POST_SIGNUP } from "../url";
+import { IChangePassword, ISignIn, ISignUp, IValidateEmailDTO } from "./interface";
+import { POST_CHANGE_PASSWORD, POST_SIGNIN, POST_SIGNUP, POST_VALIDATE_EMAIL } from "../url";
 import Requester, { IAxiosResponse } from "../util";
 import axios from "axios";
 
@@ -50,4 +50,18 @@ export async function ChangePasswordAPI(model : IChangePassword) {
 }
 
 
-POST_CHANGE_PASSWORD
+
+// Change password
+export async function ValidateEmailAPI(model : IValidateEmailDTO) {
+     try{
+          const response : any = await Requester.post(POST_VALIDATE_EMAIL, model)
+          const { Status, Data, Message } : IAxiosResponse = response.data
+          console.log({ Status, Data, Message })
+          return { Status, Data, Message } 
+     }catch(e : any){
+          const response : IAxiosResponse = { Status : e?.response?.status ? e.response.status : 400 , Data : e?.response?.data ? e.response.data : e.message }
+          const { Status, Data } : IAxiosResponse = response
+          return response
+     }
+}
+

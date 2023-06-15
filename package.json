@@ -14,6 +14,7 @@
     "@capacitor/android": "^4.7.0",
     "@capacitor/camera": "^4.1.4",
     "@capacitor/core": "^5.0.2",
+    "@capacitor/device": "^5.0.4",
     "@capacitor/ios": "^4.7.0",
     "@capacitor/preferences": "^5.0.2",
     "@capacitor/storage": "^1.2.5",

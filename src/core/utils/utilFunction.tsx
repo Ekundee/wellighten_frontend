@@ -1,5 +1,7 @@
 import { Storage } from '@capacitor/storage';
 import { Preferences }  from '@capacitor/preferences';
+import { Device } from '@capacitor/device';
+
 
 export const setPreference = async (name : string, value: any) => {
      await Preferences.set({ key: name, value: value});
@@ -24,3 +26,9 @@ export const getCapacitorStorageData = async (name : string) => {
     const {value} = await Storage.get({ key: name });
     return value
 }
+
+
+export const logDeviceInfo = async () => {
+     const info = await Device.getInfo();
+     return(info)
+};

@@ -1,5 +1,5 @@
 import { OauthButton, PrimaryButton, SecondaryButton } from "@/core/components/buttons";
-import { Alert, Avatar, Box, MenuItem, Select, Snackbar, TextField, Typography } from "@mui/material";
+import { Alert, Avatar, Box, CircularProgress, IconButton, MenuItem, Select, Snackbar, TextField, Typography } from "@mui/material";
 import { Form } from "formik";
 import { useFormik } from "formik";
 import Image from "next/image";
@@ -17,18 +17,20 @@ import { snackBarMessageAtom, snackBarOpenAtom, snackBarSeverityAtom } from "@/c
 import { useAtom } from "jotai";
 import TabSwitcher from "./components/tabSwitcher";
 import { authTabAtom } from "./state";
+import { logDeviceInfo } from "@/core/utils/utilFunction";
 
 export default function Register() {
      const [ , setSnackBarOpenState] : any= useAtom(snackBarOpenAtom)
      const [ , setSnackBarMessageState] : any = useAtom(snackBarMessageAtom)
      const [ , setSnackBarSeverityState] : any = useAtom(snackBarSeverityAtom)
      const [authTab, setAuthTab] : any = useAtom(authTabAtom)
-     const [specialization, setSpecialization] : any = useState("Pick a specialization")
-
+     const [specialization, setSpecialization] : any = useState("Pick specialization")
+     const [addrState, setAddrState] : any = useState("Location")
+     const [ registerButtonLoader, setRegisterButtonLoader ] = useState(false)
      const consultantSpecializationConfig = [
           {
-               label : "Pick a specialization",
-               value : "Pick a specialization",
+               label : "Pick specialization",
+               value : "Pick specialization",
                description : "Pick a specialization"
           },   {
                label : "Cardiologist",
@@ -73,6 +75,13 @@ export default function Register() {
           },
      ]
      
+     const states = ["Location",
+          "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa",
+          "Benue", "Borno", "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti", 
+          "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi",
+          "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau",
+          "Rivers", "Sokoto", "Taraba", "Yobe",
+          "Zamfara"]
      const router = useRouter()
 
      const registerFormConfig =[
@@ -88,6 +97,9 @@ export default function Register() {
           }, {
                placeholder: '*********',
                icon: '/lock_icon.svg',
+          },{
+               placeholder: 'License',
+               icon: '/license.svg',
           }
      ]
    
@@ -97,42 +109,69 @@ export default function Register() {
                lastname: '',
                email : '',
                password: '',
+               license: '',
           },
-          // validationSchema : yup.object({
-          //      firstname: yup.string().required("Firstname is required"),
-          //      lastname: yup.string().required("Lastname is required"),
-          //      email : yup.string().required("Email is required").email("Invalid Email"),
-          //      password: yup.string().required("Password is required").min(8, "Password must be more than 8 characters")
-          // }),
+          validationSchema : yup.object({
+               firstname: yup.string().required("Firstname is required"),
+               lastname: yup.string().required("Lastname is required"),
+               email : yup.string().required("Email is required").email("Invalid Email"),
+               password: yup.string().required("Password is required").min(8, "Password must be more than 8 characters"),
+               license: yup.string().min(10, "License number must be 10 characters").min(10, "License number must be 10 characters")
+          }),
           onSubmit : async (values)=>{
-               // const signupDTO : ISignUp = {
-               //      Firstname: values.firstname,
-               //      Lastname: values.lastname,
-               //      Role: authTab == "user" ? userRole.USER : userRole.CONSULTANT,
-               //      Email: values.email,
-               //      Password: values.password
-               // }
-               
-               // const signup = await SignUpAPI(signupDTO);
-               // if(signup.Status != 200){
-               //      setSnackBarSeverityState(alertSeverity.ERROR)
-               // }else{
-               //      setSnackBarSeverityState(alertSeverity.SUCCESS)
-               // }
-               // setSnackBarMessageState(signup?.Message)
-               // setSnackBarOpenState(true)
+               setRegisterButtonLoader(true)
+               const conditionalSpecialization = authTab == "user" ? null :  specialization
+               if(addrState == "Location"){
+                    setSnackBarSeverityState(alertSeverity.ERROR)
+                    setSnackBarMessageState("All fields are required")     
+                    setSnackBarOpenState(true)
+                    return 0;
+               }
 
-               // if(signup.Status == 200){
-               //      setTimeout(()=>{
-               //           return router.push("/auth/login")
-               //      },2000)
-               // }
-               console.log(values)
+               if(authTab == "consultant" && (specialization == "Pick specialization" || values.license == "")){
+                    setSnackBarSeverityState(alertSeverity.ERROR)
+                    setSnackBarMessageState("All fields are required")     
+                    setSnackBarOpenState(true)
+                    return 0;
+               }
+
+               const signupDTO : ISignUp = {
+                    Firstname: values.firstname,
+                    Lastname: values.lastname,
+                    Role: authTab == "user" ? userRole.USER : userRole.CONSULTANT,
+                    Email: values.email,
+                    Password: values.password,
+                    State: addrState,
+                    LicenseNumber : parseInt(values.license),
+                    Specialization: conditionalSpecialization
+               }
+               
+               const signup = await SignUpAPI(signupDTO);
+               if(signup.Status != 200){
+                    setSnackBarSeverityState(alertSeverity.ERROR)
+               }else{
+                    setSnackBarSeverityState(alertSeverity.SUCCESS)
+               }
+
+               setTimeout(()=>{
+                    setRegisterButtonLoader(false)
+                    setSnackBarMessageState(signup?.Message)
+                    setSnackBarOpenState(true)
+     
+                    if(signup.Status == 200){
+                         return router.push("/auth/otp_verification")
+                    }
+               },2000)
+
+             
           },
      })
 
      
      useEffect(()=>{
+          logDeviceInfo().then((response)=>{
+               console.log(response)
+          })
           setAuthTab(router.query.authtab)   
      },[router])
      return(
@@ -145,34 +184,15 @@ export default function Register() {
                <TabSwitcher/>
                          
                <LogoNText text="Sign up"/>             
-               {/* {
-                    Object.keys(registerForm.values).map((property,index)=>(
-                         <Box key={index} className={styles.textFieldBox}>
-                              <Avatar src={registerFormConfig[index].icon} sx={{width : "24px", height:"24px"}} />
-                              <SizedHorizontalBox px={2}/>
-                              <TextField 
-                                   name={property}
-                                   value={registerForm.values[property]}
-                                   onChange={registerForm.handleChange}
-                                   onBlur= {registerForm.handleBlur}
-                                   placeholder={registerFormConfig[index].placeholder}
-                                   error={registerForm.touched[property] && registerForm.errors[property] ? true : false}
-                                   helperText={registerForm.touched[property] && registerForm.errors[property]}
-                                   variant="standard"
-                                   sx={{ 
-                                        width  : "100%",
-                                   }}
-                                   type={property =="password" ? "password" : "text"}
-                              />
-                         </Box>
-                    ))
-               } */}
                {
-                    // specializ
                     Object.keys(registerForm.values).map((property,index)=>(
-                         <Box key={index} className={styles.textFieldBox}>
+                         <Box key={index} className={styles.textFieldBox}
+                              sx={{
+                                   display : property == "license"  && authTab == "user" ? "none" : "flex"
+                              }}
+                         >
                               <Avatar src={registerFormConfig[index].icon} sx={{width : "24px", height:"24px"}} />
-                              <SizedHorizontalBox px={2}/>
+                              <SizedHorizontalBox px={3}/>
                               <TextField 
                                    name={property}
                                    value={registerForm.values[property]}
@@ -191,20 +211,54 @@ export default function Register() {
                     ))
                }
 
-               {
-                    authTab == "consultant" &&
-                    <Select
-                         value={"Pick a specialization"}
-                         id={"specialization"}
-                         onChange={(e)=>{ setSpecialization(e.target.value)}}
+               <Box className={styles.textFieldBox}>
+                    <Avatar src={"/location.svg"} sx={{width : "24px", height:"24px"}} />
+                    <SizedHorizontalBox px={3}/>
+                    <TextField
+                         placeholder="ji"
+                         select
+                         value={addrState}
+                         onChange={(e)=>{console.log(e.target.value);setAddrState(e.target.value)}}
+                         sx={{
+                              width: "100%",
+                              py: 1
+                         }}
+                         variant="standard"
                     >
-                         {
-                              consultantSpecializationConfig.map((specialization)=>(
-                                   <MenuItem value={specialization.value}>{specialization.label}</MenuItem>
+                              {
+                              states.map((state)=>(
+                                   <MenuItem 
+                                        value={state}
+                                   >{state}</MenuItem>
                               ))
                          }
-                         <MenuItem></MenuItem>
-                    </Select>
+                    </TextField>
+               </Box>
+
+               {
+                    authTab == "consultant" &&
+                    <Box className={styles.textFieldBox}>
+                         <Avatar src={"/specialization.svg"} sx={{width : "24px", height:"24px"}} />
+                         <SizedHorizontalBox px={3}/>
+                         <Select
+                              placeholder="ji"
+                              value={specialization}
+                              onChange={(e)=>{console.log(e.target.value);setSpecialization(e.target.value)}}
+                              sx={{
+                                   width: "100%",
+                                   py: 1
+                              }}
+                              variant="standard"
+                         >
+                              {
+                                   consultantSpecializationConfig.map((specialization)=>(
+                                        <MenuItem 
+                                             value={specialization.value}
+                                        >{specialization.label}</MenuItem>
+                                   ))
+                              }
+                         </Select>
+                    </Box>
                }
 
 
@@ -212,13 +266,26 @@ export default function Register() {
                     By creating account, you agree to our <span className={styles.termsNConditionText}><Link href={"#"}>Terms and condition</Link></span> and <span className={styles.termsNConditionText}><Link href={"#"}>Privacy policy</Link></span>
                </CustomTypography>
 
-               <PrimaryButton text="Create Account" onClick={registerForm.submitForm} />
+               <PrimaryButton onClick={registerForm.submitForm}
+                    disabled={registerButtonLoader ? true : false}
+               >
+                    {
+                         registerButtonLoader ? 
+                         <CircularProgress
+                              sx={{
+                                   color : "white"
+                              }}
+                         />
+                         :   
+                         "Create Account"
+                    }
+               </PrimaryButton>
                <Or/>
                <OauthButton text="Sign up with Google" startIcon={true} iconsrc={"/googleIcon.svg"} />
 
                <CustomTypography className={styles.alreadyRegisteredFullText}> 
                     Already registered? &nbsp;
-                    <Link href={"/auth/login"}>
+                    <Link href={"/auth/login?authtab=user"}>
                          Login
                     </Link>
                </CustomTypography>

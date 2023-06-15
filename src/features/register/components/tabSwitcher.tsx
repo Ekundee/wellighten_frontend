@@ -40,7 +40,7 @@ export default function TabSwitcher () {
                          justifyContent: "center",
                          borderTopLeftRadius: "20px",
                          borderBottomLeftRadius: "20px",
-                         py: "10px"
+                         py: "10px",
                     }}
                     onClick={()=> handleSwitcher("user")}
                >
@@ -64,7 +64,7 @@ export default function TabSwitcher () {
                          justifyContent: "center",
                          borderTopRightRadius: "20px",
                          borderBottomRightRadius: "20px",
-                         py: "10px"
+                         py: "10px",
                     }}
                     onClick={()=> handleSwitcher("consultant")}
 

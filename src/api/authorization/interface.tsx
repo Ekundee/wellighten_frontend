@@ -3,7 +3,10 @@ export interface ISignUp {
      Lastname: string,
      Role: string,
      Email: string,
-     Password: string
+     Password: string,
+     State : string,
+     LicenseNumber : number,
+     Specialization : string
 }
 
 
@@ -16,4 +19,9 @@ export interface ISignIn {
 export interface IChangePassword {
      OldPassword: string,
      NewPassword: string
+}
+
+
+export interface IValidateEmailDTO {
+     Otp : number
 }

@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 import { ButtonProp } from "./interface";
 import Avatar from "@mui/material/Avatar";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, CircularProgress, IconButton, Typography } from "@mui/material";
 import { SettingsInputComponent } from "@mui/icons-material";
 import { useState } from "react"
 import { display } from "@mui/system";
@@ -11,7 +11,7 @@ import EastIcon from '@mui/icons-material/East';
 
 
 export function PrimaryButton (buttonProp: any) {
-     const {  text, title, styles, endIcon=true, startIcon=false, iconsrc} = buttonProp
+     var {  text, title, styles, endIcon=true, startIcon=false, iconsrc, children} = buttonProp
     return(
           <Button 
                title={title ? title : text}
@@ -49,7 +49,7 @@ export function PrimaryButton (buttonProp: any) {
                     }} 
                />}
           >
-               {text ? text : "Primary Button"}
+              { children  && children}
           </Button>
     )
 }

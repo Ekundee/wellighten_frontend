@@ -1,7 +1,7 @@
 import { SizedHorizontalBox, SizedVerticalBox } from "@/core/components/box";
 import { OauthButton, PrimaryButton, SecondaryButton } from "@/core/components/buttons";
 import { CustomTypography, LogoNText, Or } from "@/core/components/minor";
-import { Avatar, Box, TextField, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +16,7 @@ import { alertSeverity } from "@/core/utils/enum";
 import { getCapacitorStorageData, setCapacitorStorageData } from "@/core/utils/utilFunction";
 import TabSwitcher from "../register/components/tabSwitcher";
 import { authTabAtom } from "../register/state";
+import { useState } from "react"
 
 export default function Login() {
      const router = useRouter()
@@ -24,7 +25,7 @@ export default function Login() {
      const [snackBarMessageState , setSnackBarMessageState] : any = useAtom(snackBarMessageAtom)
      const [snackBarSeverityState , setSnackBarSeverityState] : any = useAtom(snackBarSeverityAtom)
      const [authTab,] : any = useAtom(authTabAtom)
-
+     const [ loginButtonLoader, setLoginButtonLoader] = useState(false)
      const loginFormConfig =[
           {
                placeholder: 'abc_test@gmail.com',
@@ -45,6 +46,7 @@ export default function Login() {
                password: yup.string().required("Password is required").min(8, "Password must be more than 8 characters")
           }),
           onSubmit : async (values)=>{
+               setLoginButtonLoader(true)
                const signinDTO : ISignIn = {
                     Email: values.email,
                     Password: values.password,
@@ -57,15 +59,18 @@ export default function Login() {
                }else{
                     setSnackBarSeverityState(alertSeverity.SUCCESS)
                }
-               setSnackBarMessageState(signin?.Message)
-               setSnackBarOpenState(true)
 
-               if(signin.Status == 200){
-                    await setCapacitorStorageData("wellighton_authtoken", signin.Data.AuthToken)
-                    setTimeout(()=>{
-                         return router.push("/tabs")
-                    },2000)
-               }
+               setTimeout(async()=>{
+                    setLoginButtonLoader(false)
+                    setSnackBarMessageState(signin?.Message)
+                    setSnackBarOpenState(true)
+                    if(signin.Status == 200){
+                         await setCapacitorStorageData("wellighton_authtoken", signin.Data.AuthToken)
+                         setTimeout(()=>{
+                              return router.push("/tabs")
+                         },2000)
+                    }
+               },2000)
           },
      })
     return(
@@ -106,7 +111,20 @@ export default function Login() {
                     </Link>
                </CustomTypography>
 
-               <PrimaryButton endIcon={true} text="Login" onClick={loginForm.submitForm}/>
+               <PrimaryButton endIcon={true}  onClick={loginForm.submitForm}
+                    disabled={loginButtonLoader ? true : false}
+               >
+                    {
+                         loginButtonLoader ? 
+                         <CircularProgress
+                              sx={{
+                                   color : "white"
+                              }}
+                         />
+                         :   
+                         "Login"
+                    }
+               </PrimaryButton>
 
                <Or/>
 
@@ -114,7 +132,7 @@ export default function Login() {
 
                <CustomTypography className={styles.notRegisteredFullText}>
                     Not registered yet? &nbsp;
-                    <Link href={"/auth/register"}>
+                    <Link href={"/auth/register?authtab=user"}>
                          Sign up
                     </Link>
                </CustomTypography>
